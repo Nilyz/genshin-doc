@@ -17,6 +17,13 @@ async function getCharacters() {
     }
 }
 
+function getIconImage(character) {
+    if (character.imagesList['icon-big']) {
+        return character.imagesList['icon-big'];
+    } 
+    return character.imagesList['icon'];
+}
+
 async function getCharactersNames() {
     try {
         const response = await fetch(`${URL}/characters/`);
@@ -43,7 +50,10 @@ async function getCharacter(name) {
 
         if (imagesList.length > 0) {
             character.id = name;
-            character.imagesList = imagesList;
+            character.imagesList = { };
+            imagesList.forEach(image => {
+                character.imagesList[image] = `${URL}/characters/${name}/${image}`;
+            });
             return character;
         } else {
             return undefined;
@@ -55,4 +65,4 @@ async function getCharacter(name) {
     }
 }
 
-export { getCharacters };
+export { getCharacters, getIconImage };
