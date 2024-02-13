@@ -3,3 +3,98 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+}
+
+body {
+    font-family: 'Andika', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+    min-height: 100vh;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.hero {
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+/*Card style
+.card{
+    height: 35vh;
+    width: 25vh;
+    border: 2px solid rgb(142, 142, 142);
+    border-radius: 20px;
+    background-image: url("imagenesPrueba/Emblem_Sumeru.webp");
+    background-size: 130%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.card__bloqueNombre{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.card__nombre{
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(84, 83, 83);
+}
+.card__circuloElemento{
+    height: 50px;
+    width: 50px;
+    background-color:  rgb(235, 223, 156) ;
+    border-radius: 100%; 
+    background-image: url("imagenesPrueba/Element_Dendro.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.card__img{
+    position: absolute;
+    bottom: 0;
+}
+.card__bloqueEstrellas{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+*/
+
+/*
+.extensionCard{
+    height: 750px;
+    width: 450px;
+    border: 2px solid black;
+    margin-top: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    overflow: hidden;
+}*/
