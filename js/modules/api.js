@@ -1,57 +1,57 @@
-import { APIError } from '../errors.js';
+import { FetchError, DataError, ImageNotFoundError } from '../errors.js';
 
 const URL = 'https://genshin.jmp.blue';
 
 async function getCharacters() {
     try {
-        // TODO: Implement errors and error handling
         const idCharacters = await getCharactersNames();
         const characters = await Promise.all(
             idCharacters.map(async id => {
                 return await getCharacter(id);
             }),
-        );
-        return characters.filter(character => character !== undefined);
-    } catch (error) {
+            );
+            return characters.filter(character => character !== undefined);
+        } catch (error) {
+        // TODO: Check and implement correct error handling
         console.error(error);
     }
 }
 
 async function getCharactersNames() {
     try {
-        // TODO: Implement errors and error handling
         const response = await fetch(`${URL}/characters/`);
-        if (!response || !response.ok) throw new APIError('Error fetching data');
+        if (!response.ok || !response) throw new FetchError('Error fetching characters names');
+
         const data = await response.json();
-        if (data.error) throw new APIError(data.message);
+        if (data.error) throw new DataError(data.message);
         return data;
     } catch (error) {
-        console.error(error);
+        throw error;
     }
 }
 
 async function getCharacter(name) {
     try {
-        // TODO: Implement errors and error handling
         const response = await fetch(`${URL}/characters/${name}`);
-
+        if (!response.ok || !response) throw new FetchError('Error fetching character info');
         const character = await response.json();
+        if (character.error) throw new DataError(character.message);
 
         const responseImages = await fetch(`${URL}/characters/${name}/list`);
-        if (!responseImages || !responseImages.ok) throw new APIError('Error fetching data');
+        if (!responseImages || !responseImages.ok) throw new ImageNotFoundError('Error image not found');
+        const imagesList = await responseImages.json();
 
-        const images = await responseImages.json();
-
-        if (images.length > 0) {
+        if (imagesList.length > 0) {
             character.id = name;
-            character.images = images;
+            character.imagesList = imagesList;
             return character;
         } else {
-            error = new APIError('Error fetching data');
-            throw error;
+            return undefined;
         }
     } catch (error) {
-        console.error(error);
+        if (!error instanceof ImageNotFoundError) {
+            throw error;
+        } 
     }
 }
 
