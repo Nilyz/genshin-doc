@@ -1,5 +1,5 @@
 
-import {elementsImages} from './utils.js'
+import {elementsImages,nationImages} from './utils.js'
 import { getIconImage } from './api.js';    
 
 function createCard(character){
@@ -7,16 +7,18 @@ function createCard(character){
     const card= document.createElement("div");
     card.classList.add("card");
     card.id = `card-${character.id}`;
+    const urlEmblem = `url(${nationImages[character.nation.toLowerCase()].emblem})`
+    card.style.backgroundImage=urlEmblem;
 
     const nameContainer= document.createElement("div");
-    card.classList.add("card__nameContainer");
+    nameContainer.classList.add("card__nameContainer");
 
     const name= document.createElement("p");
-    card.classList.add("card_name");
+    name.classList.add("card_name");
     name.textContent=character.name;
 
     const elementContainer= document.createElement("div");
-    card.classList.add("card__elementContainer");
+    elementContainer.classList.add("card__elementContainer");
     const urlImage = `url(${elementsImages[character.vision.toLowerCase()]})`
     elementContainer.style.backgroundImage = urlImage;
 
