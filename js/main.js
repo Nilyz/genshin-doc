@@ -5,9 +5,9 @@ const characters = await getCharacters();
 console.log(characters);
 
 // Example of use:
-const hero = document.querySelector('.hero');
-hero.style.display = 'flex';
-hero.style.flexWrap = 'wrap';
+const cardsContainer = document.getElementById('cards-container');
+cardsContainer.style.display = 'flex';
+cardsContainer.style.flexWrap = 'wrap';
 
 characters.forEach(character => {
     /*const img = document.createElement('img');
@@ -19,7 +19,7 @@ characters.forEach(character => {
     hero.appendChild(img);
 
     console.log(character); */
-    hero.appendChild(createCard(character));
+    cardsContainer.appendChild(createCard(character));
 });
 
 console.log(characters[0].imagesList['icon-big']);

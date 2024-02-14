@@ -1,4 +1,5 @@
 import { FetchError, DataError, ImageNotFoundError } from '../errors.js';
+import { getIconImage } from './utils.js';
 
 const URL = 'https://genshin.jmp.blue';
 
@@ -15,13 +16,6 @@ async function getCharacters() {
         // TODO: Check and implement correct error handling
         console.error(error);
     }
-}
-
-function getIconImage(character) {
-    if (character.imagesList['icon-big']) {
-        return character.imagesList['icon-big'];
-    } 
-    return character.imagesList['icon'];
 }
 
 async function getCharactersNames() {
