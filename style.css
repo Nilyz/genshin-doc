@@ -34,9 +34,10 @@ img {
 .hero {
     min-height: 100vh;
     max-height: 100vh;
+    display: flex;
 }
 
-/*Card style
+
 .card{
     height: 35vh;
     width: 25vh;
@@ -46,23 +47,24 @@ img {
     background-size: 130%;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
     background-color: rgba(0, 0, 0, 0.1);
 }
-.card__bloqueNombre{
+/*
+.card__nameContainer{
     width: 100%;
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+
 }
-.card__nombre{
+/*
+.card_name{
     font-size: 2em;
     font-weight: bold;
     color: rgb(84, 83, 83);
 }
-.card__circuloElemento{
+.card__elementContainer{
     height: 50px;
     width: 50px;
     background-color:  rgb(235, 223, 156) ;
@@ -79,14 +81,14 @@ img {
     position: absolute;
     bottom: 0;
 }
-.card__bloqueEstrellas{
+.card__starsContainer{
     position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
 }
-*/
 
+*/
 /*
 .extensionCard{
     height: 750px;

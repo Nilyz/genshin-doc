@@ -9,9 +9,9 @@ async function getCharacters() {
             idCharacters.map(async id => {
                 return await getCharacter(id);
             }),
-            );
-            return characters.filter(character => character !== undefined);
-        } catch (error) {
+        );
+        return characters.filter(character => character !== undefined);
+    } catch (error) {
         // TODO: Check and implement correct error handling
         console.error(error);
     }
