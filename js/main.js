@@ -6,6 +6,7 @@ console.log(characters);
 
 // Example of use:
 const cardsContainer = document.getElementById('cards-container');
+cardsContainer.innerHTML = '';
 cardsContainer.style.display = 'flex';
 cardsContainer.style.flexWrap = 'wrap';
 
