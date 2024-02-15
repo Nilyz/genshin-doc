@@ -6,7 +6,7 @@
 
 html {
     font-size: 16px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(246, 250, 253);
 }
 
 body {
@@ -15,7 +15,8 @@ body {
     font-style: normal;
     width: 100%;
     min-height: 100vh;
-    color: black;
+    color: rgb(53, 53, 53);
+    /*background-color: rgb(255, 255, 240);*/
 }
 
 a {
@@ -30,64 +31,106 @@ img {
     height: auto;
     object-fit: contain;
 }
-
 .hero {
     min-height: 100vh;
     max-height: 100vh;
     display: flex;
 }
 
-
-.card{
+/*landing*/
+.hero {
+    background-image:/*linear-gradient(0deg, rgb(255, 255, 240) 0%, rgba(0, 0, 0, 0) 15%),*/ url('/img/wp7718232-traveler-genshin-impact-hd-wallpapers.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.clouds__img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.logo__img {
+    position: absolute;
+}
+.characterCardsContainer {
+    padding-top: 5%;
+}
+/*cards container*/
+.cardsContainer {
+    align-items: center;
+    justify-content: center;
+    padding: 3% 8% 8% 8%;
+    gap: 80px;
+}
+.sectionTitleCharacters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sectionTitleCharacters_line {
+    width: 15%;
+    height: 2px;
+    border: 2px solid rgb(53, 53, 53);
+    /*background-image: url('/img/lineaDivisoria.png');
+    background-size: contain;
+    background-repeat: repeat-x;*/
+}
+.sectionTitleCharacters_title {
+    margin: 50px;
+    font-size: 2.5em;
+}
+.card {
     height: 35vh;
     width: 25vh;
-    border: 2px solid rgb(142, 142, 142);
+    border: 3px solid rgb(230, 213, 121);
     border-radius: 20px;
     background-size: 130%;
     background-position: center;
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
-/*
-.card__nameContainer{
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+.card__nameContainer {
+    height: 30%;
+    text-align: center;
+    position: relative;
+    padding-top: 50px;
 }
-/*
-.card_name{
-    font-size: 2em;
+.card_name {
+    font-size: 1.7em;
     font-weight: bold;
-    color: rgb(84, 83, 83);
 }
-.card__elementContainer{
+.card__elementContainer {
     height: 50px;
     width: 50px;
-    background-color:  rgb(235, 223, 156) ;
-    border-radius: 100%; 
-    background-image: url("imagenesPrueba/Element_Dendro.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(230, 213, 121);
     position: absolute;
-    right: 10px;
-    top: 10px;
+    top: 10%;
+    right: 5%;
+    border-radius: 100%;
 }
-.card__img{
+.card__img {
     position: absolute;
     bottom: 0;
-}
-.card__starsContainer{
-    position: absolute;
-    bottom: 0;
+    height: 70%;
     width: 100%;
-    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.card__img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(10px 5px 5px rgba(0, 0, 0, 0.263));
+}
+.card__starsContainer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
 }
 
-*/
 /*
 .extensionCard{
     height: 750px;

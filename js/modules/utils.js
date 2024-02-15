@@ -19,11 +19,11 @@ const nationImages = {
     },
     inazuma: {
         background: '/img/inazuma.jpg',
-        emblem: '/img/inazuma_emb.webp',
+        emblem: '/img/inazuma_emb2.webp',
     },
     sumeru: {
         background: '/img/sumeru.jpg',
-        emblem: '/img/sumeru_emb.webp',
+        emblem: '/img/sumeru_emb2.webp',
     },
     fontaine: {
         background: '/img/fontaine.jpg',
@@ -32,20 +32,20 @@ const nationImages = {
 };
 const nationDefault = {
     background: '',
-    emblem: '',
+    emblem: '/img/domain_emb.webp',
 };
 
 function getElementsImages(vision) {
     return elementsImages[vision.toLowerCase()];
 }
 const elementsImages = {
-    pyro: '/img/pyro.png',
-    hydro: '/img/hydro.png',
-    cryo: '/img/cryo.png',
+    pyro: '/img/pyro.svg',
+    hydro: '/img/hydro.svg',
+    cryo: '/img/cryo.svg',
     anemo: '/img/anemo.svg',
-    dendro: '/img/dendro.png',
+    dendro: '/img/dendro.svg',
     electro: '/img/electro.svg',
-    geo: '/img/geo.png',
+    geo: '/img/geo.svg',
 };
 
 export { getNationImage, getIconImage, getElementsImages };

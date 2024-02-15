@@ -15,7 +15,24 @@
         <script src="/js/main.js" type="module" defer></script>
     </head>
     <body>
-        <main class="hero"></main>
+        <main class="hero" id="hero">
+            <div class="logo">
+                <img src="img/logo_genshin_grande.png" alt="" class="logo__img" />
+            </div>
+            <div class="clouds">
+                <img src="img/fondo_nubes.png" alt="" class="clouds__img" />
+            </div>
+        </main>
+        <section class="characterCardsContainer">
+            <div class="sectionTitleCharacters">
+                <hr class="sectionTitleCharacters_line" />
+                <h2 class="sectionTitleCharacters_title">Characters</h2>
+                <hr class="sectionTitleCharacters_line" />
+            </div>
+            <div class="cardsContainer" id="cards-container"></div>
+            <div class="cardsModal" id="cards-modal"></div>
+        </section>
+
         <!-- Template Card:
             //mini tarjeta
             <div class="main" id="main">
