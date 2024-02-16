@@ -97,22 +97,43 @@ img {
     justify-content: center;
 }
 
+/* TODO: Add animation hover to cards */
+/* TODO: Add shadows to cards and cards elements */
 .card {
+    position: relative;
     width: 100%;
     max-width: 180px;
     aspect-ratio: 0.75;
-    position: relative;
     border: 3px solid #e6d579;
     border-radius: 20px;
-    /* background-size: 130%;
-    background-position: center;
-    background-repeat: no-repeat; */
     background-color: #0000001a;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.card::after {
+    background: #fff;
+    content: '';
+    height: 315px;
+    width: 50px;
+    left: -125px;
+    top: -40px;
+    opacity: 0.3;
+    position: absolute;
+    transform: rotate(33deg);
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 10;
+    filter: blur(5px);
+}
+
+.card:hover::after {
+    left: 150%;
+    transform: rotate(35deg);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .card__backgroundNation {
@@ -164,9 +185,6 @@ img {
     width: 100%;
     height: auto;
     object-fit: cover;
-}
-
-.card__img:hover {
 }
 
 .card__starsContainer {
