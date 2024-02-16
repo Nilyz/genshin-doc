@@ -38,7 +38,7 @@ function createCard(character) {
     for (let i = 0; i < character.rarity; i++) {
         const star = document.createElement('img');
         star.classList.add('card__star');
-        star.src = '../img/Icon_1_Star.webp';
+        star.src = './img/Icon_1_Star.webp';
         starsContainer.appendChild(star);
     }
 

@@ -6,7 +6,6 @@
 
 html {
     font-size: 16px;
-    background-color: #f9fcff;
 }
 
 body {
@@ -67,17 +66,24 @@ img {
 }
 
 .sectionTitleCharacters_line {
-    width: 15%;
-    height: 2px;
-    border: 2px solid #353535;
-    background-image: url('./img/lineaDivisoria.png');
-    background-size: contain;
-    background-repeat: repeat-x;
+    width: 100%; 
+    height: 0;
+    border:2px solid #d3bf4e;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+}
+
+.sectionTitleCharacters_line--izq{
+    border-right: 60px solid #d3bf4e; 
+}
+
+.sectionTitleCharacters_line--der{
+    border-left: 60px solid #d3bf4e; 
 }
 
 .sectionTitleCharacters_title {
-    margin: 50px;
-    font-size: 2.5em;
+    margin: 18px;
+    font-size: 2em;
 }
 
 /*cards container*/
@@ -277,6 +283,7 @@ img {
 }
 
 @media (min-width: 768px) {
+    
 }
 
 @media (min-width: 1024px) {
@@ -287,5 +294,23 @@ img {
         top: 10%;
         left: 0;
         transform: translateX(-50%);
+    }
+    .sectionTitleCharacters_title {
+        margin: 50px;
+        font-size: 2.5em;
+    }
+    .sectionTitleCharacters_line {
+        width: 100%; 
+        height: 0;
+        border:2px solid #d3bf4e;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+    }
+    .sectionTitleCharacters_line--izq{
+        border-right: 250px solid #d3bf4e; 
+    }
+    
+    .sectionTitleCharacters_line--der{
+        border-left: 250px solid #d3bf4e; 
     }
 }
