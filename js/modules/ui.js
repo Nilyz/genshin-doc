@@ -84,4 +84,8 @@ function createModalContent (character) {
 
 }
 
+function createModalCard(character) {
+
+}
+
 export { createCard };
