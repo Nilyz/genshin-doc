@@ -55,6 +55,7 @@ img {
 }
 
 .characterCardsContainer {
+    position: relative;
     margin: auto;
     padding-top: 5%;
 }
@@ -82,6 +83,7 @@ img {
 /*cards container*/
 .cardsContainer {
     position: relative;
+    overflow-x: hidden;
     max-width: 1280px;
     margin: 0 auto;
     width: 100%;
@@ -121,14 +123,6 @@ img {
     width: 100%;
     transform: translate(-50%, -50%) scale(1.25);
 }
-
-/*
-.card__nameContainer {
-    height: 30%;
-    text-align: center;
-    position: relative;
-    padding-top: 50px;
-}*/
 
 .card_name {
     height: 25%;
@@ -172,10 +166,8 @@ img {
     object-fit: cover;
 }
 
-/* .card__img:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(10px 5px 5px #00000043);
-} */
+.card__img:hover {
+}
 
 .card__starsContainer {
     width: calc(100% - 50px);
@@ -202,8 +194,80 @@ img {
     overflow: hidden;
 }*/
 
+/* TODO: Fix animation to close modal */
+.modal {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #ff00009c;
+}
+
+.modal__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #0000009c;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.modal__background--active {
+    opacity: 1;
+    height: 100vh;
+    width: 100%;
+}
+
+.modal__main {
+    right: 0;
+    position: absolute;
+    background-color: #f7fbff;
+    z-index: 2;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.modal__main--active {
+    height: 100vh;
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.modal__closeButton {
+    position: absolute;
+    transform: none;
+    top: 5%;
+    left: 5%;
+    z-index: 3;
+    background-color: #910024;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none;
+    font-weight: bold;
+}
+
+.modal__closeButton--active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (min-width: 768px) {
 }
 
 @media (min-width: 1024px) {
+    .modal__main--active {
+        width: 90%;
+    }
+    .modal__closeButton {
+        top: 10%;
+        left: 0;
+        transform: translateX(-50%);
+    }
 }

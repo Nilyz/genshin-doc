@@ -15,7 +15,7 @@
         <script src="/js/main.js" type="module" defer></script>
     </head>
     <body>
-        <main class="hero" id="hero">
+        <main id="hero" class="hero">
             <div class="logo">
                 <img src="img/logo_genshin_grande.png" alt="" class="logo__img" />
             </div>
@@ -23,7 +23,30 @@
                 <img src="img/fondo_nubes.png" alt="" class="clouds__img" />
             </div>
         </main>
-        <section class="characterCardsContainer">
+        <section id="characters-section" class="characterCardsContainer">
+            <div id="cards-modal" class="modal">
+                <div class="modal__background"></div>
+                <div class="modal__main">
+                    <button id="modal-close-button" class="modal__closeButton">
+                        X
+                    </button>
+                    <!-- Template ExtensionCard:
+                    <div class="extensionCard"  id="extensionCard">
+                        <img class="extensionCard__img" src="" alt="" id="extensionCard__img">
+                        <div class="extensionCard_nombreContainer">
+                            <p class="extensionCard__nombre">Collei</p>
+                            <p class="extensionCard__titulo">Titulo del personaje</p>
+                        </div>
+                        <div class="extensionCard__bloqueEstrellas">
+                            <img class="extensionCard__imgEstrellas" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
+                            <img class="extensionCard__imgEstrellas" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
+                            <img class="extensionCard__imgEstrellas" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
+                            <img class="extensionCard__imgEstrellas" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
+                        </div>
+                        <div class="extensionCard__descripcion"></div>
+                    </div>
+                --></div>
+            </div>
             <div class="sectionTitleCharacters">
                 <hr class="sectionTitleCharacters_line" />
                 <h2 class="sectionTitleCharacters_title">Characters</h2>
@@ -47,23 +70,6 @@
                         <img class="card__star" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
                     </div>
                 </a>
-            --></div>
-            <div class="cardsModal" id="cards-modal">
-                <!-- Template ExtensionCard:
-            <div class="extensionCard"  id="extensionCard">
-                <img class="extensionCard__img" src="" alt="" id="extensionCard__img">
-                <div class="extensionCard_nombreContainer">
-                    <p class="extensionCard__nombre">Collei</p>
-                    <p class="extensionCard__titulo">Titulo del personaje</p>
-                </div>
-                <div class="extensionCard__bloqueEstrellas">
-                    <img class="extensionCard__imgEstrellas" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
-                    <img class="extensionCard__imgEstrellas" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
-                    <img class="extensionCard__imgEstrellas" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
-                    <img class="extensionCard__imgEstrellas" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
-                </div>
-                <div class="extensionCard__descripcion"></div>
-            </div>
             --></div>
         </section>
     </body>

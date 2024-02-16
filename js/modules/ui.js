@@ -1,7 +1,7 @@
 import { getIconImage, getElementsImages, getNationImage } from './utils.js';
 
 function createCard(character) {
-    const card = document.createElement('div');
+    const card = document.createElement('a');
     card.classList.add('card');
     card.id = `card-${character.id}`;
 
@@ -9,9 +9,6 @@ function createCard(character) {
     backgroundNation.classList.add('card__backgroundNation');
     backgroundNation.src = getNationImage(character.nation).emblem;
     backgroundNation.alt = `${character.nation} emblem`;
-
-    /* const nameContainer = document.createElement('div');
-    nameContainer.classList.add('card__nameContainer'); */
 
     const name = document.createElement('p');
     name.classList.add('card_name');
@@ -24,12 +21,6 @@ function createCard(character) {
     imgElement.src = getElementsImages(character.vision);
     imgElement.alt = `${character.vision} element`;
     elementContainer.appendChild(imgElement);
-
-    /* const urlImage = `url(${getElementsImages(character.vision)})`;
-    elementContainer.style.backgroundImage = urlImage; */
-
-    /* nameContainer.appendChild(name);
-    nameContainer.appendChild(elementContainer); */
 
     const imgContainer = document.createElement('div');
     imgContainer.classList.add('card__imgContainer');
@@ -57,7 +48,40 @@ function createCard(character) {
     card.appendChild(imgContainer);
     card.appendChild(starsContainer);
 
+    card.addEventListener('click', () => openCardsModal(character));
+
     return card;
+}
+
+function openCardsModal(character) {
+    const modalElement = document.querySelector('.modal__main');
+    const modalBackground = document.querySelector('.modal__background');
+    const modalButton = document.querySelector('.modal__closeButton');
+
+    modalElement.classList.add('modal__main--active');
+
+    modalBackground.classList.add('modal__background--active');
+
+    modalButton.classList.add('modal__closeButton--active');
+
+    createModalContent(character);
+
+    modalButton.addEventListener('click', closeCardsModal);
+    modalBackground.addEventListener('click', closeCardsModal);
+}
+
+function closeCardsModal() {
+    const modalElement = document.querySelector('.modal__main');
+    const modalBackground = document.querySelector('.modal__background');
+    const modalButton = document.querySelector('.modal__closeButton');
+
+    modalElement.classList.remove('modal__main--active');
+    modalBackground.classList.remove('modal__background--active');
+    modalButton.classList.remove('modal__closeButton--active');
+}
+
+function createModalContent (character) {
+
 }
 
 export { createCard };
