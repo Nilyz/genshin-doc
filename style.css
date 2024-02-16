@@ -16,6 +16,7 @@ body {
     min-height: 100vh;
     color: #353535;
     background-color: #f7fbff;
+    overflow-y: none;
 }
 
 a {

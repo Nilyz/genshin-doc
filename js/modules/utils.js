@@ -1,8 +1,17 @@
 function getIconImage(character) {
+    if (character.name === 'Traveler') {
+        character.traveler = getRandomTraveler();
+        return character.imagesList[`icon-big-${character.traveler}`];
+    }
     if (character.imagesList['icon-big']) {
         return character.imagesList['icon-big'];
     }
     return character.imagesList['icon'];
+}
+
+function getRandomTraveler() {
+    const randomNumber = Math.floor(Math.random() * 2) + 1; 
+    return randomNumber === 1 ? 'lumine' : 'aether';
 }
 
 function getNationImage(nation) {
