@@ -3,7 +3,8 @@ import { getIconImage, getElementsImages, getNationImage } from './utils.js';
 function createCard(character) {
     const card = document.createElement('a');
     card.classList.add('card');
-    card.id = `card-${character.id}`;
+    card.id = `${character.id}`;
+    card.href = `#${character.id}`;
 
     const backgroundNation = document.createElement('img');
     backgroundNation.classList.add('card__backgroundNation');
@@ -78,6 +79,7 @@ function closeCardsModal() {
     modalElement.classList.remove('modal__main--active');
     modalBackground.classList.remove('modal__background--active');
     modalButton.classList.remove('modal__closeButton--active');
+    history.replaceState({}, document.title, window.location.pathname);
 }
 
 function createModalContent(character) {
