@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,37 +15,57 @@
         <script src="./js/main.js" type="module" defer></script>
     </head>
     <body>
-        <main id="hero" class="hero">
-            <div class="logo">
-                <img src="./img/logo_genshin_grande.png" alt="Genshin Impact logo" class="logo__img" />
+        <header class="header">
+            <div class="header__logo">
+                <img src="./img/logo_genshin_grande.png" alt="Genshin Impact logo" class="header__img" />
             </div>
-            <div class="buttonContainer">
-                <img
-                    class="buttonContainer__img"
-                    src="./img/contorno_boton.png"
-                    alt="Decoration for button to go bottom"
-                />
-                <a href="#characters-section" class="buttonContainer__btn">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#hero" class="nav__link">Top</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#characters" class="nav__link">Characters</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#footer" class="nav__link">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            <section id="hero" class="hero">
+                <div class="buttonContainer">
                     <img
-                        class="buttonContainer__btnImg"
-                        src="./img/arrow-narrow-circle-broken-left-svgrepo-com.svg"
-                        alt=""
+                        class="buttonContainer__img"
+                        src="./img/contorno_boton.png"
+                        alt="Decoration for button to go bottom"
                     />
-                    <img class="buttonContainer__btnImgArrow" src="./img/arrow-sm-left-svgrepo-com.svg" alt="" />
-                </a>
-            </div>
-            <img src="./img/fondo_nubes.png" alt="cloud" class="hero__clouds" />
-        </main>
-        <section id="characters-section" class="characterCardsContainer">
-            <div id="cards-modal" class="modal">
-                <div class="modal__background"></div>
-                <div class="modal__main">
-                    <button id="modal-close-button" class="modal__closeButton">
-                        <img class="modal__btnImg" src="./img/arrow-narrow-circle-broken-left-svgrepo-com.svg" alt="" />
-                        <img class="modal__btnImgArrow" src="./img/arrow-sm-left-svgrepo-com.svg" alt="" />
-                    </button>
-                    <div class="modal__content" id="modal__content"></div>
-                    <!-- Template ExtensionCard:
+                    <a href="#characters" class="buttonContainer__btn">
+                        <img
+                            class="buttonContainer__btnImg"
+                            src="./img/arrow-narrow-circle-broken-left-svgrepo-com.svg"
+                            alt=""
+                        />
+                        <img class="buttonContainer__btnImgArrow" src="./img/arrow-sm-left-svgrepo-com.svg" alt="" />
+                    </a>
+                </div>
+                <img src="./img/fondo_nubes.png" alt="cloud" class="hero__clouds" />
+            </section>
+            <section id="characters" class="characterCardsContainer">
+                <div id="cards-modal" class="modal">
+                    <div class="modal__background"></div>
+                    <div class="modal__main">
+                        <button id="modal-close-button" class="modal__closeButton">
+                            <img
+                                class="modal__btnImg"
+                                src="./img/arrow-narrow-circle-broken-left-svgrepo-com.svg"
+                                alt=""
+                            />
+                            <img class="modal__btnImgArrow" src="./img/arrow-sm-left-svgrepo-com.svg" alt="" />
+                        </button>
+                        <div class="modal__content" id="modal__content"></div>
+                        <!-- Template ExtensionCard:
                     <div class="extensionCard"  id="extensionCard">
                         <img class="extensionCard__img" src="" alt="" id="extensionCard__img">
                         <div class="extensionCard_nombreContainer">
@@ -60,15 +80,16 @@
                         </div>
                         <div class="extensionCard__descripcion"></div>
                     </div>
-                --></div>
-            </div>
-            <div class="sectionTitleCharacters">
-                <hr class="sectionTitleCharacters_line sectionTitleCharacters_line--izq" />
-                <h2 class="sectionTitleCharacters_title">Characters</h2>
-                <hr class="sectionTitleCharacters_line sectionTitleCharacters_line--der" />
-            </div>
-            <div class="cardsContainer" id="cards-container">
-                <!-- Template Card:
+                -->
+                    </div>
+                </div>
+                <div class="sectionTitleCharacters">
+                    <hr class="sectionTitleCharacters_line sectionTitleCharacters_line--izq" />
+                    <h2 class="sectionTitleCharacters_title">Characters</h2>
+                    <hr class="sectionTitleCharacters_line sectionTitleCharacters_line--der" />
+                </div>
+                <div class="cardsContainer" id="cards-container">
+                    <!-- Template Card:
                 <a class="card">
                     <img class="card__backgroundNation" src="#">
                     <div class="card__bloqueNombre">
@@ -85,7 +106,12 @@
                         <img class="card__star" src="imagenesPrueba/Icon_1_Star.webp" alt="" />
                     </div>
                 </a>
-            --></div>
-        </section>
+            -->
+                </div>
+            </section>
+        </main>
+        <footer id="footer" class="footer">
+            <!-- TODO -->
+        </footer>
     </body>
 </html>

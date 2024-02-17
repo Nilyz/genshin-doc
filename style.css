@@ -10,13 +10,16 @@ html {
 }
 
 body {
+    position: relative;
     font-family: 'Andika', sans-serif;
     font-weight: 400;
     font-style: normal;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     color: #353535;
     background-color: #f7fbff;
+    padding-bottom: 60px;
 }
 
 a {
@@ -34,25 +37,95 @@ img {
     object-fit: contain;
 }
 
+/* aside header */
+.header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: #000000;
+}
+
+.header__logo {
+    position: relative;
+    padding: 15px 0;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 20%;
+    height: 100%;
+    overflow: visible;
+}
+
+.header__img {
+    overflow: visible;
+    width: 100%;
+    max-height: 100%;
+    margin: auto;
+    object-fit: contain;
+    object-position: bottom center;
+}
+
+.header__title {
+    text-align: center;
+    color: white;
+    font-size: xx-small;
+}
+
+.nav {
+    width: 75%;
+    height: 100%;
+}
+
+.nav__list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.nav__item {
+    width: 33%;
+    height: 100%;
+}
+
+.nav__link {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
 /*landing*/
 .hero {
     position: relative;
-    height: 100vh;
-    background-image:/*linear-gradient(0deg, rgb(255, 255, 240) 0%, rgba(0, 0, 0, 0) 15%),*/ url('./img/wp7718232-traveler-genshin-impact-hd-wallpapers.jpg');
+    height: calc(100vh - 60px);
+    background-image: url('./img/wp7718232-traveler-genshin-impact-hd-wallpapers.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-position: 17.5% 0;
 }
 
 .hero__clouds {
     position: absolute;
     width: 100%;
     height: auto;
-    bottom: -1px;
+    bottom: -2px;
     left: 0;
-}
-.logo__img {
-    position: absolute;
 }
 .buttonContainer {
     position: absolute;
@@ -111,6 +184,8 @@ img {
 .characterCardsContainer {
     position: relative;
     margin: auto;
+    max-width: 100%;
+    overflow: hidden;
     min-height: 100vh;
 }
 
@@ -260,14 +335,16 @@ img {
 
 /* TODO: Fix animation to close modal */
 .modal {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 101;
     background-color: #ff00009c;
 }
 
 .modal__background {
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -455,11 +532,77 @@ img {
     html {
         font-size: 18px;
     }
+    body {
+        padding-bottom: 80px;
+    }
+    .header {
+        height: 80px;
+    }
+    .hero {
+        height: calc(100vh - 80px);
+    }
+    .modal {
+        width: 100vw;
+    }
 }
 
 @media (min-width: 1024px) {
     html {
         font-size: 20px;
+    }
+    body {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 0;
+        height: 100vh;
+    }
+    .main {
+        overflow: auto;
+        height: 100%;    
+        width: 100%;
+    }
+    .header {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        max-width: 320px;
+        padding: 20px;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+    }
+    .header__logo {
+        width: 100%;
+        height: auto;
+        padding: 0
+    }
+    .header::after {
+        content: '';
+        width: 100%;
+        height: 60px; /* TODO: Change height (footer height) */
+    }
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 320px;
+        height: 60px;
+        border: 1px solid red; /* TODO */
+        z-index: 100;
+    }
+    .nav {
+        width: 100%;
+    }
+    .nav__list {
+        justify-content: center;
+        flex-flow: column nowrap;
+    }    
+    .nav__item {
+        width: 100%;
+        height: 60px;
+    }
+    .hero {
+        height: 100vh;
+        background-position: 0;
     }
     .modal__main--active {
         width: 90%;
