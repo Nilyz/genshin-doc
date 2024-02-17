@@ -38,9 +38,13 @@ const nationImages = {
         background: './img/fontaine.jpg',
         emblem: './img/fontaine_emb.webp',
     },
+    snezhnaya: {
+        background: './img/snezhnaya.webp',
+        emblem: './img/snezhnaya_emb.webp',
+    },
 };
 const nationDefault = {
-    background: '',
+    background: './img/celestia.jpg',
     emblem: './img/domain_emb.webp',
 };
 
