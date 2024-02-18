@@ -242,7 +242,7 @@ img {
     display: grid;
     gap: 20px;
     padding: 20px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%/3, max(200px, 100%/4)), 1fr));
     grid-template-rows: auto;
     justify-items: center;
 }
@@ -311,7 +311,6 @@ img {
     position: absolute;
     height: 50px;
     width: 50px;
-    /* TODO: Change color */
     background-color: #f4faff;
     border-top: 3px solid #e6d579;
     border-left: 3px solid #e6d579;
@@ -531,7 +530,7 @@ img {
 
 .modalCharacter__img {
     position: absolute;
-    max-width: none;
+    max-width: 157%;
     height: 90%;
     object-fit: contain;
     top: 50%;
@@ -567,8 +566,8 @@ img {
     position: absolute;
     top: 55%;
     right: 8%;
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     z-index: 100;
     border-radius: 100%;
     border: 3px solid #d3bf4e;
@@ -617,7 +616,7 @@ img {
     background-color: #7170709d;
     backdrop-filter: blur(1.5px);
     position: absolute;
-    bottom: 10%;
+    top: 65%;
     left: 5%;
     z-index: 4;
     border-radius: 10px;
@@ -625,6 +624,13 @@ img {
     font-size: 1rem;
     text-wrap: pretty;
     box-shadow: 5px 5px 5px #4d4b4b9d;
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    padding: 40px 10px;
+    background-color: #353535;
 }
 
 @media (min-width: 768px) {
@@ -667,7 +673,8 @@ img {
     }
     .modalCharacter__icon--hidden {
         display: block;
-        top: 40%;
+        bottom: 50%;
+        top: auto;
         left: 10%;
         width: 10%;
     }
@@ -676,7 +683,6 @@ img {
     }
     .modalCharacter__description {
         bottom: auto;
-        top: 65%;
     }
     .cardsContainer {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -724,6 +730,7 @@ img {
         left: 0;
         width: 320px;
         height: 60px;
+        background-color: #000000;
         border: 1px solid red; /* TODO */
         z-index: 100;
     }
@@ -782,9 +789,9 @@ img {
         left: 53%;
     }
     .cardsContainer {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        padding: 50px;
-        gap: 50px;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 35px;
+        padding: 35px;
     }
     .card {
         aspect-ratio: 0.7;

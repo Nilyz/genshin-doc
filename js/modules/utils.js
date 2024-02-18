@@ -2,6 +2,7 @@ function getIconImage(character) {
     if (character.name === 'Traveler') {
         if (!character.traveler) {
             character.traveler = getRandomTraveler();
+            character.title = `(${character.vision} Element)`;
         }
         return character.imagesList[`icon-big-${character.traveler}`];
     }
