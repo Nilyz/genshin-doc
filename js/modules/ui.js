@@ -12,7 +12,7 @@ function createCard(character) {
     backgroundNation.alt = `${character.nation} emblem`;
 
     const name = document.createElement('p');
-    name.classList.add('card_name');
+    name.classList.add('card__name');
     name.textContent = character.name;
 
     const elementContainer = document.createElement('div');

@@ -292,9 +292,9 @@ img {
     transform: translate(-50%, -50%) scale(1.25);
 }
 
-.card_name {
+.card__name {
     height: 25%;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     z-index: 2;
     line-height: 1;
     padding: 5px 10px;
@@ -606,7 +606,7 @@ img {
 }
 .modalCharacter__star {
     height: 25px;
-    filter: drop-shadow(#d3bf4e 2px 2px 2px)
+    filter: drop-shadow(#d3bf4e 2px 2px 2px);
 }
 
 .modalCharacter__descriptionContainer {
@@ -620,7 +620,6 @@ img {
     left: 5%;
     z-index: 4;
     border-radius: 10px;
-    padding: 10px;
     box-shadow: 5px 5px 5px #4d4b4b9d;
     transition: all 0.3s ease;
 }
@@ -649,28 +648,31 @@ img {
     opacity: 0;
 }
 .modalCharacter__description {
+    padding: 10px;
     max-width: 100%;
     width: max-content;
     font-size: 1rem;
     text-wrap: pretty;
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
 }
 
 .modalCharacter__properties {
+    padding: 5px;
     position: relative;
+    max-width: 100%;
     width: 100%;
     height: 0;
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     transition: all 0.3s ease;
     line-height: 1.05;
 }
 
-.modalCharacter__descriptionContainer:hover 
-.modalCharacter__properties {
+.modalCharacter__descriptionContainer:hover .modalCharacter__properties {
+    height: 100%;
     overflow: initial;
     margin-bottom: 20px;
 }
@@ -749,6 +751,7 @@ img {
         display: none;
     }
     .modalCharacter__descriptionContainer {
+        padding: 5px;
         bottom: auto;
     }
     .modalCharacter__properties {
@@ -758,6 +761,9 @@ img {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         padding: 30px;
         gap: 30px;
+    }
+    .card_name {
+        font-size: 1.5rem;
     }
 }
 
@@ -849,14 +855,73 @@ img {
         height: 100px;
         z-index: 6;
     }
+    .modalCharacter__img {
+        left: 42.5%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 120%;
+    }
+
+    .modalCharacter__icon {
+        position: fixed;
+        width: 30%;
+        max-width: 275px;
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        z-index: 7;
+    }
+    .modalCharacter__icon--hidden {
+        width: 10%;
+        bottom: 70%;
+        left: 10%;
+        transform: none;
+    }
     .modalCharacter__nameContainer {
-        top: 20%;
-        left: 30%;
+        top: 30%;
+        left: 10%;
+        right: auto;
+        width: max-content;
+        max-width: 320px;
+    }
+    .modalCharacter__name {
+        font-size: 2rem;
+    }
+    .modalCharacter__title {
+        font-size: 1.35rem;
+    }
+    .modalCharacter__star {
+        height: 35px;
     }
     .modalCharacter__descriptionContainer {
-        max-width: 50%;
-        bottom: 25%;
-        left: 40%;
+        overflow: hidden;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 45px;
+        left: auto;
+        padding: 5px;
+        max-width: 33%;
+        height: min-content;
+        max-height: 100%;
+        transition: none;
+        z-index: 4;
+    }
+    .modalCharacter__descriptionContainer:hover {
+        height: min-content;
+    }
+    .modalCharacter__descriptionContainer::after {
+        display: none;
+    }
+
+    .modalCharacter__properties {
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+        max-height: 100%;
+        height: 100%;
+        overflow: initial;
+        margin: auto;
     }
     .cardsContainer {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
