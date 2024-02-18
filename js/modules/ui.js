@@ -1,4 +1,4 @@
-import { getIconImage, getElementsImages, getNationImage } from './utils.js';
+import { getIconImage, getElementsImages, getNationImage, getPortraitImage, getCardImage } from './utils.js';
 
 function createCard(character) {
     const card = document.createElement('a');
@@ -85,56 +85,116 @@ function closeCardsModal() {
 }
 
 function createModalContent(character) {
-    const modalCharacterCard = document.createElement('div');
-    modalCharacterCard.classList.add('modalCharacterCard');
+    const modalCharacter = document.createElement('div');
+    modalCharacter.classList.add('modalCharacter');
 
     const modalBackground = document.createElement('div');
-    modalBackground.classList.add('modalBackground');
+    modalBackground.classList.add('modalCharacter__background');
 
-    const modalBackgroundImg = document.createElement('img');
-    modalBackgroundImg.classList.add('modalBackground__img');
-    modalBackgroundImg.src = character.imagesList['card'];
+    const card = getCardImage(character);
+    const portraitImg = getPortraitImage(character);
+    const icon = getIconImage(character);
 
-    const modalBackgroundImgPc = document.createElement('div');
-    modalBackgroundImgPc.classList.add('modalBackground__imgPc');
-    modalBackgroundImgPc.style.backgroundImage = `url(${getNationImage(character.nation).background})`;
-    console.log(`url(${getNationImage(character.nation).background})`);
+    if (card) {
+        const modalBackgroundImg = document.createElement('img');
+        modalBackgroundImg.classList.add('modalCharacter__backgroundImg');
+        modalBackgroundImg.src = card;
+        modalBackground.appendChild(modalBackgroundImg);
+    } 
+
+    const modalBackgroundImgPc = document.createElement('img');
+    modalBackgroundImgPc.classList.add('modalCharacter__backgroundImg', 'modalCharacter__backgroundImg--nation');
+    modalBackgroundImgPc.src = `${getNationImage(character.nation).background}`;
 
     const modalBackgroundFilter = document.createElement('div');
-    modalBackgroundFilter.classList.add('modalBackground__filter');
+    modalBackgroundFilter.classList.add('modalCharacter__backgroundFilter');
 
     const modalBackgroundBorder = document.createElement('div');
-    modalBackgroundBorder.classList.add('modalBackground__border');
+    modalBackgroundBorder.classList.add('modalCharacter__border');
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 1; i <= 4; i++) {
         const modalBorderStar = document.createElement('img');
-        modalBorderStar.classList.add('modalBackground__borderStar' + i);
+        modalBorderStar.classList.add('modalCharacter__borderStar', `modalCharacter__borderStar--${i}`);
         modalBorderStar.src = './img/star-2-svgrepo-com (1).svg';
         modalBackgroundBorder.appendChild(modalBorderStar);
     }
 
-    modalBackground.appendChild(modalBackgroundImg);
+    modalBackground.appendChild(modalBackgroundImgPc);
     modalBackground.appendChild(modalBackgroundBorder);
-    modalBackground.appendChild(modalBackgroundFilter);
+
+    const modalCharacterImgContainer = document.createElement('div');
+    modalCharacterImgContainer.classList.add('modalCharacter__imgContainer');
+
+    const modalCharacterIcon = document.createElement('img');
+    modalCharacterIcon.classList.add('modalCharacter__icon');
+    modalCharacterIcon.src = icon;
 
     const modalCharacterImg = document.createElement('img');
-    modalCharacterImg.classList.add('modalCharacterCard__img');
-    modalCharacterImg.src = character.imagesList['portrait'];
+    if (portraitImg) {
+        modalCharacterImg.classList.add('modalCharacter__img');
+        modalCharacterImg.src = portraitImg;
+        modalCharacterImgContainer.appendChild(modalCharacterImg);
+
+        modalCharacterIcon.classList.add('modalCharacter__icon--hidden');
+    }
+
+    const selectorImg = document.createElement('div');
+    if (portraitImg && card) {
+        selectorImg.classList.add('modalCharacter__selectorImg');
+        let state = 0;
+        selectorImg.addEventListener('click', () => {
+            if (state === 0) {
+                modalCharacterImg.classList.add('modalCharacter__img--hidden');
+                modalCharacterIcon.classList.remove('modalCharacter__icon--hidden');
+                state = 1;
+            } else if (state === 1) {
+                modalBackgroundFilter.classList.add('modalCharacter__backgroundFilter--hidden');
+                modalCharacterIcon.classList.add('modalCharacter__icon--hidden');
+                state = 2;
+            } else {
+                modalBackgroundFilter.classList.remove('modalCharacter__backgroundFilter--hidden');
+                modalCharacterImg.classList.remove('modalCharacter__img--hidden');
+                state = 0;
+            }
+        });
+
+        modalCharacterImgContainer.appendChild(selectorImg);
+    } else if (card) {
+        selectorImg.classList.add('modalCharacter__selectorImg');
+        let state = 0;
+        selectorImg.addEventListener('click', () => {
+            if (state === 0) {
+                modalBackgroundFilter.classList.add('modalCharacter__backgroundFilter--hidden');
+                modalCharacterIcon.classList.add('modalCharacter__icon--hidden');
+                state = 1;
+            } else {
+                modalBackgroundFilter.classList.remove('modalCharacter__backgroundFilter--hidden');
+                modalCharacterIcon.classList.remove('modalCharacter__icon--hidden');
+                state = 0;
+            }
+        });
+        modalCharacterImgContainer.appendChild(selectorImg);
+    }
+
+    modalBackground.appendChild(modalBackgroundFilter);
+    modalCharacterImgContainer.appendChild(modalCharacterIcon);
 
     const modalNameContainer = document.createElement('div');
-    modalNameContainer.classList.add('modalCharacterCard__nameContainer');
+    modalNameContainer.classList.add('modalCharacter__nameContainer');
+
     const modalName = document.createElement('p');
-    modalName.classList.add('modalCharacterCard__name');
+    modalName.classList.add('modalCharacter__name');
     modalName.textContent = character.name;
+
     const modalCharacterTitle = document.createElement('p');
-    modalCharacterTitle.classList.add('modalCharacterCard__title');
+    modalCharacterTitle.classList.add('modalCharacter__title');
     modalCharacterTitle.textContent = character.title;
 
     const modalStarsContainer = document.createElement('div');
-    modalStarsContainer.classList.add('modalCharacterCard__StarContainer');
+    modalStarsContainer.classList.add('modalCharacter__starsContainer');
     for (let i = 0; i < character.rarity; i++) {
         const modalStar = document.createElement('img');
-        modalStar.classList.add('modalCharacterCard_star');
+        modalStar.classList.add('modalCharacter__star');
         modalStar.src = './img/Icon_1_Star.webp';
         modalStarsContainer.appendChild(modalStar);
     }
@@ -144,20 +204,22 @@ function createModalContent(character) {
     modalNameContainer.appendChild(modalStarsContainer);
 
     const modalCharacterDescription = document.createElement('div');
-    modalCharacterTitle.classList.add('modalCharacterCard__descriptionContainer');
+    modalCharacterDescription.classList.add('modalCharacter__descriptionContainer');
+
     const description = document.createElement('p');
-    description.classList.add('modalCharacterCard__description');
+    description.classList.add('modalCharacter__description');
     description.textContent = character.description;
 
     modalCharacterDescription.appendChild(description);
 
-    modalCharacterCard.appendChild(modalCharacterImg);
-    modalCharacterCard.appendChild(modalBackground);
-    modalCharacterCard.appendChild(modalBackgroundImgPc);
-    modalCharacterCard.appendChild(modalNameContainer);
-    modalCharacterCard.appendChild(modalCharacterDescription);
+    modalCharacter.appendChild(modalBackground);
 
-    return modalCharacterCard;
+    modalCharacter.appendChild(modalCharacterImgContainer);
+
+    modalCharacter.appendChild(modalNameContainer);
+    modalCharacter.appendChild(modalCharacterDescription);
+
+    return modalCharacter;
 }
 
 export { createCard };

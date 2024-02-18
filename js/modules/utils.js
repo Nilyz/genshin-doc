@@ -1,6 +1,8 @@
 function getIconImage(character) {
     if (character.name === 'Traveler') {
-        character.traveler = getRandomTraveler();
+        if (!character.traveler) {
+            character.traveler = getRandomTraveler();
+        }
         return character.imagesList[`icon-big-${character.traveler}`];
     }
     if (character.imagesList['icon-big']) {
@@ -8,10 +10,24 @@ function getIconImage(character) {
     }
     return character.imagesList['icon'];
 }
-
 function getRandomTraveler() {
     const randomNumber = Math.floor(Math.random() * 2) + 1; 
     return randomNumber === 1 ? 'lumine' : 'aether';
+}
+
+function getCardImage(character) {
+    if (character.name === 'Traveler' && character.traveler === 'aether') {
+        character.imagesList['card'] = './img/cardTravelerAether.webp';
+    }
+    return character.imagesList['card'];
+}
+
+function getPortraitImage(character) {
+    if (character.name === 'Traveler') {
+        const travelerGender = character.traveler === 'lumine' ? 'f' : 'm';
+        return character.imagesList[`portrait${travelerGender}`] || character.imagesList['portrait'];
+    }
+    return character.imagesList['portrait'];
 }
 
 function getNationImage(nation) {
@@ -61,4 +77,4 @@ const elementsImages = {
     geo: './img/geo.svg',
 };
 
-export { getNationImage, getIconImage, getElementsImages };
+export { getNationImage, getIconImage, getElementsImages, getPortraitImage, getCardImage };

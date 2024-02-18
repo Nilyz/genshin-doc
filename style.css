@@ -59,11 +59,11 @@ img {
     flex-flow: column nowrap;
     width: 20%;
     height: 100%;
-    overflow: visible;
+    overflow: unset;
 }
 
 .header__img {
-    overflow: visible;
+    overflow: unset;
     width: 100%;
     max-height: 100%;
     margin: auto;
@@ -133,6 +133,7 @@ img {
     bottom: -2px;
     left: 0;
 }
+
 .buttonContainer {
     position: absolute;
     top: 70%;
@@ -143,6 +144,7 @@ img {
     height: 100px;
     z-index: 6;
 }
+
 .buttonContainer__img {
     position: absolute;
     height: 100%;
@@ -150,6 +152,7 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .buttonContainer__btn {
     position: absolute;
     background-color: white;
@@ -164,18 +167,21 @@ img {
     justify-content: center;
     align-items: center;
 }
+
 .buttonContainer__btnImg,
 .buttonContainer__btnImgArrow {
     rotate: -90deg;
     position: absolute;
     border-radius: 100%;
 }
+
 .buttonContainer__btnImg {
     background-color: white;
     z-index: 8;
     width: 100%;
     transition: all 0.3s ease;
 }
+
 .buttonContainer__btnImgArrow {
     left: 50%;
     top: 10%;
@@ -183,9 +189,11 @@ img {
     width: 85%;
     z-index: 7;
 }
+
 .buttonContainer__btnImg:hover {
     opacity: 0;
 }
+
 /*character section*/
 .characterCardsContainer {
     position: relative;
@@ -397,11 +405,13 @@ img {
     cursor: pointer;
     display: none;
 }
+
 .modal__closeButton--active {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .modal__btnImg,
 .modal__btnImgArrow {
     position: absolute;
@@ -431,62 +441,39 @@ img {
     width: 100%;
 }
 
-.modalCharacterCard {
+.modalCharacter {
+    position: relative;
     height: 100%;
     width: 100%;
-    position: relative;
     color: white;
     overflow: hidden;
 }
 
-.modalBackground {
+.modalCharacter__background {
     position: absolute;
     height: 100%;
     width: 100%;
+    background-color: #353535;
 }
 
-.modalBackground__img {
+.modalCharacter__backgroundImg {
+    z-index: 1;
     height: 100%;
     width: 100%;
-    border: 2px solid #d3bf4e;
-}
-
-.modalBackground__imgPc {
-    display: none;
-}
-
-.modalBackground__border {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    top: 0;
-    left: 0;
     border: 3px solid #d3bf4e;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    border-radius: 70px;
+    object-fit: cover;
+    object-position: center 0;
+    background-color: transparent;
 }
 
-.modalBackground__borderStar0,
-.modalBackground__borderStar1,
-.modalBackground__borderStar2,
-.modalBackground__borderStar3 {
-    position: absolute;
-    height: 20px;
-}
-
-.modalBackground__borderStar1 {
+.modalCharacter__backgroundImg--nation {
+    z-index: 0;
     top: 0;
-    right: 0;
-}
-.modalBackground__borderStar2 {
-    bottom: 0;
     left: 0;
 }
-.modalBackground__borderStar3 {
-    bottom: 0;
-    right: 0;
-}
-.modalBackground__filter {
+
+.modalCharacter__backgroundFilter {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -495,43 +482,149 @@ img {
     left: 0;
     border: 3px solid #d3bf4e;
     border-radius: 70px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    opacity: 1;
+    transition: opacity 0.2s ease;
 }
-.modalCharacterCard__img {
-    width: auto;
-    max-width: none;
-    height: 480px;
+.modalCharacter__backgroundFilter--hidden {
+    opacity: 0.25;
+}
+
+.modalCharacter__border {
     position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border: 3px solid #d3bf4e;
+}
+
+.modalCharacter__borderStar {
+    position: absolute;
+    height: 20px;
+    transform: rotate(45deg);
+}
+.modalCharacter__borderStar--2 {
+    top: 0;
+    right: 0;
+}
+.modalCharacter__borderStar--3 {
+    bottom: 0;
+    left: 0;
+}
+.modalCharacter__borderStar--4 {
+    bottom: 0;
+    right: 0;
+}
+
+.modalCharacter__imgContainer {
+    position: relative;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    overflow: hidden;
+    max-height: 100%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.25);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.modalCharacter__img {
+    position: absolute;
+    max-width: none;
+    height: 90%;
+    object-fit: contain;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 3;
     filter: drop-shadow(10px 7px 10px black);
 }
-
-.modalCharacterCard__nameContainer {
-    position: absolute;
-    top: 60%;
-    left: 8%;
-    z-index: 4;
+.modalCharacter__img--hidden {
+    display: none;
 }
-.modalCharacterCard__name {
+
+.modalCharacter__icon {
+    position: absolute;
+    object-fit: contain;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    filter: drop-shadow(10px 7px 10px black);
+    width: 50%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    border: 3px dashed #d3bf4e;
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+.modalCharacter__icon--hidden {
+    display: none;
+}
+
+.modalCharacter__selectorImg {
+    position: absolute;
+    top: 55%;
+    right: 8%;
+    width: 20px;
+    height: 20px;
+    z-index: 100;
+    border-radius: 100%;
+    border: 3px solid #d3bf4e;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.modalCharacter__selectorImg:active {
+    background-color: #d3bf4e;
+}
+
+.modalCharacter__nameContainer {
+    color: #f0f0f0;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    z-index: 4;
+    width: 80%;
+}
+
+.modalCharacter__name {
+    width: max-content;
+    max-width: 90%;
     font-size: 1.6rem;
     font-weight: bold;
+    text-wrap: balance;
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 5px black);
 }
-.modalCharacterCard_star {
+
+.modalCharacter__title {
+    filter: drop-shadow(5px 5px 5px black);
+}
+.modalCharacter__star {
     height: 25px;
+    filter: drop-shadow(#d3bf4e 2px 2px 2px)
 }
-.modalCharacterCard__description {
-    max-width: 80%;
-    background-color: rgba(113, 112, 112, 0.614);
+
+.modalCharacter__description {
+    max-width: 90%;
+    max-height: 25%;
+    overflow: auto;
+    background-color: #7170709d;
     backdrop-filter: blur(1.5px);
     position: absolute;
-    bottom: 40px;
-    left: 10px;
-    font-size: 1rem;
+    bottom: 10%;
+    left: 5%;
     z-index: 4;
     border-radius: 10px;
     padding: 10px;
+    font-size: 1rem;
+    text-wrap: pretty;
+    box-shadow: 5px 5px 5px #4d4b4b9d;
 }
 
 @media (min-width: 768px) {
@@ -549,6 +642,41 @@ img {
     }
     .modal {
         width: 100vw;
+    }
+    .modalCharacter__backgroundFilter {
+        background-color: transparent;
+        backdrop-filter: blur(4px);
+    }
+    .modalCharacter__backgroundImg {
+        display: none;
+    }
+    .modalCharacter__backgroundImg--nation {
+        z-index: 1;
+        display: block;
+    }
+    .modalCharacter__img {
+        width: 85%;
+        height: auto;
+        min-height: 90%;
+        top: 10%;
+        left: 15%;
+        transform: none;
+    }
+    .modalCharacter__icon {
+        max-width: 30%;
+    }
+    .modalCharacter__icon--hidden {
+        display: block;
+        top: 40%;
+        left: 10%;
+        width: 10%;
+    }
+    .modalCharacter__selectorImg {
+        display: none;
+    }
+    .modalCharacter__description {
+        bottom: auto;
+        top: 65%;
     }
     .cardsContainer {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -644,28 +772,14 @@ img {
         height: 100px;
         z-index: 6;
     }
-    .modalBackground__img {
-        display: none;
-    }
-    .modalCharacterCard__nameContainer {
+    .modalCharacter__nameContainer {
         top: 20%;
         left: 30%;
     }
-    .modalCharacterCard__description {
+    .modalCharacter__description {
         max-width: 30%;
         bottom: 25%;
         left: 53%;
-    }
-    .modalBackground__imgPc {
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
     }
     .cardsContainer {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
