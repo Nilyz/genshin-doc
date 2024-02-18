@@ -20,6 +20,3 @@ characters.forEach(character => {
     console.log(character); */
     cardsContainer.appendChild(createCard(character));
 });
-
-console.log(characters[0].imagesList['icon-big']);
-console.log(characters[0].imagesList[Object.keys(characters[0].imagesList)[0]]);
