@@ -65,7 +65,9 @@ function openCardsModal(character) {
 
     modalButton.classList.add('modal__closeButton--active');
 
-    createModalContent(character);
+    const modalContent = document.getElementById('modal__content');
+    modalContent.innerHTML = '';
+    modalContent.appendChild(createModalContent(character));
 
     modalButton.addEventListener('click', closeCardsModal);
     modalBackground.addEventListener('click', closeCardsModal);
@@ -83,8 +85,6 @@ function closeCardsModal() {
 }
 
 function createModalContent(character) {
-    const modalContent = document.getElementById('modal__content');
-    modalContent.innerHTML = '';
     const modalCharacterCard = document.createElement('div');
     modalCharacterCard.classList.add('modalCharacterCard');
 
@@ -156,7 +156,8 @@ function createModalContent(character) {
     modalCharacterCard.appendChild(modalBackgroundImgPc);
     modalCharacterCard.appendChild(modalNameContainer);
     modalCharacterCard.appendChild(modalCharacterDescription);
-    modalContent.appendChild(modalCharacterCard);
+
+    return modalCharacterCard;
 }
 
 export { createCard };
