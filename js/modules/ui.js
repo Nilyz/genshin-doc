@@ -100,7 +100,7 @@ function createModalContent(character) {
         modalBackgroundImg.classList.add('modalCharacter__backgroundImg');
         modalBackgroundImg.src = card;
         modalBackground.appendChild(modalBackgroundImg);
-    } 
+    }
 
     const modalBackgroundImgPc = document.createElement('img');
     modalBackgroundImgPc.classList.add('modalCharacter__backgroundImg', 'modalCharacter__backgroundImg--nation');
@@ -182,11 +182,11 @@ function createModalContent(character) {
     const modalNameContainer = document.createElement('div');
     modalNameContainer.classList.add('modalCharacter__nameContainer');
 
-    const modalName = document.createElement('p');
+    const modalName = document.createElement('h3');
     modalName.classList.add('modalCharacter__name');
     modalName.textContent = character.name;
 
-    const modalCharacterTitle = document.createElement('p');
+    const modalCharacterTitle = document.createElement('h4');
     modalCharacterTitle.classList.add('modalCharacter__title');
     modalCharacterTitle.textContent = character.title;
 
@@ -211,6 +211,7 @@ function createModalContent(character) {
     description.textContent = character.description;
 
     modalCharacterDescription.appendChild(description);
+    modalCharacterDescription.appendChild(createPropertiesModalCharacter(character));
 
     modalCharacter.appendChild(modalBackground);
 
@@ -220,6 +221,89 @@ function createModalContent(character) {
     modalCharacter.appendChild(modalCharacterDescription);
 
     return modalCharacter;
+}
+
+function createPropertiesModalCharacter(character) {
+    const modalProperties = document.createElement('div');
+    modalProperties.classList.add('modalCharacter__properties');
+
+    const talents = document.createElement('ul');
+    talents.classList.add('modalCharacter__property');
+
+    const talentTitle = document.createElement('li');
+    talentTitle.classList.add('modalCharacter__propertyTitle');
+    talentTitle.textContent = 'Talents';
+    talents.appendChild(talentTitle);
+
+    character.skillTalents.forEach(talent => {
+        const talentElement = document.createElement('li');
+        talentElement.classList.add('modalCharacter__talent');
+
+        const talentType = document.createElement('p');
+        talentType.textContent = talent.unlock + ":";
+        talentType.classList.add('modalCharacter__talentType', `modalCharacter__talentType--${talent.type}`);
+
+        const talentName = document.createElement('p');
+        talentName.textContent = talent.name;
+        talentName.classList.add('modalCharacter__talentName');
+
+        talentElement.appendChild(talentType);
+        talentElement.appendChild(talentName);
+
+        talents.appendChild(talentElement);
+    });
+
+    const passives = document.createElement('ul');
+    passives.classList.add('modalCharacter__property');
+
+    const passiveTitle = document.createElement('li');
+    passiveTitle.classList.add('modalCharacter__propertyTitle');
+    passiveTitle.textContent = 'Passives';
+    passives.appendChild(passiveTitle);
+
+    character.passiveTalents.forEach(passive => {
+        const passiveElement = document.createElement('li');
+        passiveElement.classList.add('modalCharacter__passive');
+
+        const passiveName = document.createElement('p');
+        passiveName.textContent = passive.name;
+        passiveName.classList.add('modalCharacter__passiveName');
+
+        const passiveUnlock = document.createElement('p');
+        passiveUnlock.textContent = `(${passive.unlock})`;
+        passiveUnlock.classList.add('modalCharacter__passiveUnlocked');
+
+        passiveElement.appendChild(passiveName);
+        passiveElement.appendChild(passiveUnlock);
+
+        passives.appendChild(passiveElement);
+    });
+
+    const constellations = document.createElement('ul');
+    constellations.classList.add('modalCharacter__property');
+
+    const constellationTitle = document.createElement('li');
+    constellationTitle.classList.add('modalCharacter__propertyTitle');
+    constellationTitle.textContent = 'Constellations';
+    constellations.appendChild(constellationTitle);
+
+    character.constellations.forEach(constellation => {
+        const constellationElement = document.createElement('li');
+        constellationElement.classList.add('modalCharacter__constellation');
+
+        const constellationName = document.createElement('p');
+        constellationName.textContent = `Level ${constellation.level}:\n ${constellation.name}`;
+
+        constellationElement.appendChild(constellationName);
+
+        constellations.appendChild(constellationElement);
+    });
+
+    modalProperties.appendChild(talents);
+    modalProperties.appendChild(passives);
+    modalProperties.appendChild(constellations);
+
+    return modalProperties;
 }
 
 export { createCard };

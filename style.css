@@ -210,7 +210,7 @@ img {
     align-items: center;
 }
 
-.sectionTitleCharacters_line {
+.sectionTitleCharacters__line {
     width: 100%;
     height: 0;
     border: 2px solid #d3bf4e;
@@ -218,15 +218,15 @@ img {
     border-bottom: 3px solid transparent;
 }
 
-.sectionTitleCharacters_line--izq {
+.sectionTitleCharacters__line--izq {
     border-right: 60px solid #d3bf4e;
 }
 
-.sectionTitleCharacters_line--der {
+.sectionTitleCharacters__line--der {
     border-left: 60px solid #d3bf4e;
 }
 
-.sectionTitleCharacters_title {
+.sectionTitleCharacters__title {
     margin: 18px;
     font-size: 2rem;
 }
@@ -609,21 +609,87 @@ img {
     filter: drop-shadow(#d3bf4e 2px 2px 2px)
 }
 
-.modalCharacter__description {
-    max-width: 90%;
+.modalCharacter__descriptionContainer {
+    width: 90%;
     max-height: 25%;
     overflow: auto;
     background-color: #7170709d;
     backdrop-filter: blur(1.5px);
     position: absolute;
-    top: 65%;
+    top: 67.5%;
     left: 5%;
     z-index: 4;
     border-radius: 10px;
     padding: 10px;
+    box-shadow: 5px 5px 5px #4d4b4b9d;
+    transition: all 0.3s ease;
+}
+
+.modalCharacter__descriptionContainer:hover {
+    height: 100%;
+}
+
+.modalCharacter__descriptionContainer::after {
+    content: 'v';
+    position: absolute;
+    width: 35px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.modalCharacter__descriptionContainer:hover::after {
+    opacity: 0;
+}
+.modalCharacter__description {
+    max-width: 100%;
+    width: max-content;
     font-size: 1rem;
     text-wrap: pretty;
-    box-shadow: 5px 5px 5px #4d4b4b9d;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.modalCharacter__properties {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+    line-height: 1.05;
+}
+
+.modalCharacter__descriptionContainer:hover 
+.modalCharacter__properties {
+    overflow: initial;
+    margin-bottom: 20px;
+}
+
+.modalCharacter__property {
+    display: flex;
+    text-align: left;
+    gap: 5px;
+    flex-flow: column nowrap;
+    padding: 15px;
+    border: 1px solid #d3bf4e;
+}
+
+.modalCharacter__propertyTitle {
+    justify-self: flex-start;
+    text-align: center;
+    font-weight: bold;
+    color: #d3bf4e;
+    border-bottom: 1px solid #d3bf4e;
 }
 
 .footer {
@@ -664,6 +730,7 @@ img {
         width: 85%;
         height: auto;
         min-height: 90%;
+        max-height: 155%;
         top: 10%;
         left: 15%;
         transform: none;
@@ -681,8 +748,11 @@ img {
     .modalCharacter__selectorImg {
         display: none;
     }
-    .modalCharacter__description {
+    .modalCharacter__descriptionContainer {
         bottom: auto;
+    }
+    .modalCharacter__properties {
+        line-height: 1.25;
     }
     .cardsContainer {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -757,17 +827,17 @@ img {
         left: 0;
         transform: translateX(-50%) rotate(45deg) scale(1.5);
     }
-    .sectionTitleCharacters_title {
+    .sectionTitleCharacters__title {
         margin: 50px;
         font-size: 2.5rem;
     }
-    .sectionTitleCharacters_line {
+    .sectionTitleCharacters__line {
         width: 100%;
     }
-    .sectionTitleCharacters_line--izq {
+    .sectionTitleCharacters__line--izq {
         border-right: 250px solid #d3bf4e;
     }
-    .sectionTitleCharacters_line--der {
+    .sectionTitleCharacters__line--der {
         border-left: 250px solid #d3bf4e;
     }
     .buttonContainer {
@@ -783,10 +853,10 @@ img {
         top: 20%;
         left: 30%;
     }
-    .modalCharacter__description {
-        max-width: 30%;
+    .modalCharacter__descriptionContainer {
+        max-width: 50%;
         bottom: 25%;
-        left: 53%;
+        left: 40%;
     }
     .cardsContainer {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
