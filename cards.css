@@ -1,0 +1,114 @@
+/*cards container*/
+.cardsContainer {
+    position: relative;
+    overflow-x: hidden;
+    max-width: 1440px;
+    margin: 30px auto 0;
+    width: 100%;
+    height: 90%;
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%/3, max(200px, 100%/4)), 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 0.75;
+    border: 3px solid #e6d579;
+    border-radius: 20px;
+    background-color: #0000001a;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.card::after {
+    background: #fff;
+    content: '';
+    height: 200%;
+    width: 50px;
+    left: -70%;
+    top: -50%;
+    opacity: 0.3;
+    position: absolute;
+    transform: rotate(33deg);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 10;
+    filter: blur(5px);
+}
+
+.card:hover::after {
+    left: 150%;
+    transform: rotate(35deg);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card__backgroundNation {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+.card__name {
+    height: 25%;
+    font-size: 1.25rem;
+    z-index: 2;
+    line-height: 1;
+    padding: 5px 10px;
+    text-align: center;
+    font-weight: bold;
+    text-wrap: balance;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__elementContainer {
+    z-index: 2;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: #f4faff;
+    border-top: 3px solid #e6d579;
+    border-left: 3px solid #e6d579;
+    bottom: 0;
+    right: 0;
+    border-start-start-radius: 20px;
+}
+
+.card__imgContainer {
+    z-index: 1;
+    width: auto;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+.card__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card__starsContainer {
+    width: calc(100% - 50px);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.card__star {
+    width: 20%;
+}
