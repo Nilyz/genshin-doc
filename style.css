@@ -49,7 +49,10 @@ img {
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
-    background-color: #000000;
+    background-color: #dfdfdf;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(./img/fondoFloresHorizontal.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .header__logo {
@@ -100,9 +103,9 @@ img {
     content: '';
     width: 100%;
     height: 3px;
-    background-color: #d3bf4e;
+    background-color: #ffffff;
     position: absolute;
-    bottom: 0;
+    bottom: 15px;
     left: 0;
     transform: scaleX(0);
     transition: transform 0.3s ease;
@@ -112,6 +115,7 @@ img {
 }
 
 .nav__link {
+    font-family: 'Times New Roman', Times, serif;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -139,6 +143,33 @@ img {
     background-size: cover;
     background-attachment: fixed;
     background-position: 17.5% 0;
+}
+.hero_embImg{
+    position: absolute;
+    height: 150px;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.hero__title{
+    position: absolute;
+    font-size: 3.5em;
+    text-align: center;
+    width: 100%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 0 0 10px rgba(195, 226, 247, 0.3);
+    filter: drop-shadow(9px 2px 13px rgb(2, 48, 113));
+    
+    -webkit-background-clip: text; 
+    background-clip: text;
+   /* background-image: url('./img/fondoFloresHorizontal.jpg');*/
+    background-size: cover;
+    background-attachment: fixed; 
+    
 }
 
 .hero__clouds {
@@ -418,6 +449,7 @@ img {
     height: 35px;
     cursor: pointer;
     display: none;
+    transform:rotate(45deg) ;
 }
 
 .modal__closeButton--active {
@@ -715,7 +747,6 @@ img {
     width: 100%;
     height: auto;
     padding: 40px 10px;
-    background-color: #353535;
 }
 
 @media (min-width: 768px) {
@@ -739,7 +770,7 @@ img {
     }
     .modalCharacter__backgroundFilter {
         background-color: transparent;
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(2px);
     }
     .modalCharacter__backgroundImg {
         display: none;
@@ -759,6 +790,7 @@ img {
     }
     .modalCharacter__icon {
         max-width: 30%;
+        backdrop-filter: blur(4.5px);
     }
     .modalCharacter__icon--hidden {
         display: block;
@@ -825,10 +857,11 @@ img {
         bottom: 0;
         left: 0;
         width: 320px;
-        height: 60px;
-        background-color: #000000;
-        border: 1px solid red; /* TODO */
+        height: 200px;
         z-index: 100;
+        background-image: url("./img/sombraFooter.png");
+        background-position: center;
+        background-size: cover;
     }
     .nav {
         width: 100%;
@@ -838,7 +871,7 @@ img {
         flex-flow: column nowrap;
     }
     .nav__item {
-        width: 100%;
+        width: 65%;
         padding: 30px 0;
         height: min-content;
     }
@@ -848,6 +881,12 @@ img {
     .hero {
         height: 100vh;
         background-position: 0;
+    }
+    .hero__title{
+       
+        top: 30%;
+        font-size: 3em;
+        
     }
     .modal__main--active {
         width: 90%;
@@ -955,5 +994,9 @@ img {
     }
     .card {
         aspect-ratio: 0.7;
+    }
+    .header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url(./img/fondoFlores.jpg);
+        background-size: cover;
     }
 }
