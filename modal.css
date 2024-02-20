@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
 }
 
 .modal__background--active {
