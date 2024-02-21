@@ -20,7 +20,7 @@ body {
     color: #353535;
     background-color: #f7fbff;
     padding-bottom: 60px;
-    cursor: url('./img/cursor_primogem.png'), auto;
+    cursor: url('./img/cursor_paimon2.png'), auto;
 }
 
 a {
@@ -37,6 +37,7 @@ img {
     height: auto;
     object-fit: contain;
 }
+
 
 /* aside header */
 .header {
@@ -188,6 +189,7 @@ img {
     max-width: 400px;
     height: 100px;
     z-index: 6;
+    
 }
 
 .buttonContainer__img {
@@ -302,7 +304,7 @@ img {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: space-around;
     align-items: center;
-    height: 50%;
+    height: 60%;
     padding: 15px;
     padding-top: 10%;
     gap: 15px;
