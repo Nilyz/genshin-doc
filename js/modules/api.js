@@ -44,7 +44,7 @@ async function getCharacter(name) {
 
         if (imagesList.length > 0) {
             character.id = name;
-            character.imagesList = { };
+            character.imagesList = {};
             imagesList.forEach(image => {
                 character.imagesList[image] = `${URL}/characters/${name}/${image}`;
             });
@@ -55,23 +55,19 @@ async function getCharacter(name) {
     } catch (error) {
         if (!error instanceof ImageNotFoundError) {
             throw error;
-        } 
+        }
     }
 }
 
-
-
-
-function filterByName(search, characters){
-    search=search.toLowerCase().trim();
-    const results = characters.filter(character=>character.name.toLowerCase().trim().includes(search));
+function filterByName(search, characters) {
+    search = search.toLowerCase().trim();
+    const results = characters.filter(character => character.name.toLowerCase().trim().includes(search));
     return results;
 }
 
-function filterByElement(search, characters){
-    const results = characters.filter(character=>character.vision===search);
+function filterByElement(search, characters) {
+    const results = characters.filter(character => character.vision === search);
     return results;
 }
 
-
-export { getCharacters, getIconImage, filterByName,filterByElement};
+export { getCharacters, getIconImage, filterByName, filterByElement };
