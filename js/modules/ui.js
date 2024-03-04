@@ -1,5 +1,13 @@
 import { getIconImage, getElementsImages, getNationImage, getPortraitImage, getCardImage } from './utils.js';
 
+function setCardsContainer(characters) {
+    const cardsContainer = document.getElementById('cards-container');
+    cardsContainer.innerHTML = '';
+    characters.forEach(character => {
+        cardsContainer.appendChild(createCard(character));
+    });
+}
+
 function createCard(character) {
     const card = document.createElement('a');
     card.classList.add('card');
@@ -330,4 +338,4 @@ function createFilterCheckbox (filter, type) {
     return label;
 }
 
-export { createCard, filtersTypes, createFilterCheckbox };
+export { createCard, filtersTypes, createFilterCheckbox, setCardsContainer };

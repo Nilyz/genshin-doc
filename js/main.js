@@ -1,13 +1,12 @@
-import { getCharacters} from './modules/api.js';
-import { createCard, createFilterCheckbox, filtersTypes } from './modules/ui.js';
-import { filterByName,filterByElements,filterByNations } from './modules/utils.js';
+import { NotFoundError } from './errors.js';
+import { getCharacters } from './modules/api.js';
+import { setCardsContainer, createCard, createFilterCheckbox, filtersTypes } from './modules/ui.js';
+import { filterByName, filterByElements, filterByNations } from './modules/utils.js';
 
 const characters = await getCharacters();
 console.log(characters);
 
-// Example of use:
 const cardsContainer = document.getElementById('cards-container');
-cardsContainer.innerHTML = '';
 
 const elements = [];
 const nations = [];
@@ -31,41 +30,43 @@ nations.forEach(nation => {
 
 const filterForm = document.getElementById('cards-filter');
 
-let cont=0;
-
 filterForm.addEventListener('submit', event => {
     event.preventDefault();
-    const formData = new FormData(filterForm);
+    try {
+        const formData = new FormData(filterForm);
 
-    let result = characters;
-    const search = formData.get('cards-filter__name');
+        if (
+            formData.get('cards-filter__name') === '' &&
+            formData.getAll(filtersTypes.ELEMENT).length === 0 &&
+            formData.getAll(filtersTypes.NATION).length === 0
+        ) {
+            throw new EmptyFormError('Empty form');
+        }
 
-    result = filterByName(search, result);
+        let result = characters;
+        const search = formData.get('cards-filter__name');
 
-    const elements = formData.getAll(filtersTypes.ELEMENT);
-    if (elements.length > 0) {
-        console.log(elements);
-        result=filterByElements(elements, result);
+        result = filterByName(search, result);
+
+        const elements = formData.getAll(filtersTypes.ELEMENT);
+        if (elements.length > 0) {
+            console.log(elements);
+            result = filterByElements(elements, result);
+        }
+
+        const nations = formData.getAll(filtersTypes.NATION);
+        if (nations.length > 0) {
+            console.log(nations);
+            result = filterByNations(nations, result);
+        }
+
+        if (result.length === 0) {
+            throw new NotFoundError('No characters found');
+        }
+
+        setCardsContainer(result);
+        console.log(result);
+    } catch (error) {
+        // TODO: Implement error handling
     }
-    const nations = formData.getAll(filtersTypes.NATION);
-    if (nations.length > 0) {
-        console.log(nations);
-        result=filterByNations(nations, result);
-    }
-    console.log(result);
 });
-
-
-
-
-/* getNameBtn.addEventListener("click",() =>{
-    let prueba=filterByName(search.value, characters);
-    console.log(prueba)
-    /*let pruebaElemento=filterByElement(search.value, characters);
-    console.log(pruebaElemento)*
-    let checkPyro= pyro.checked;
-    if(checkPyro){
-        let pruebaElemento=filterByElement("Pyro", prueba);
-        console.log(pruebaElemento)
-    }
-} ); */
