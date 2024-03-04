@@ -13,7 +13,7 @@
             href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="./filter.css">
+        <link rel="stylesheet" href="./filter.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="./cards.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="./modal.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
@@ -103,16 +103,46 @@
                     <hr class="sectionTitleCharacters__line sectionTitleCharacters__line--der" />
                 </div>
 
-                <div class="filterSection">
-                    <div class="filterSection_byRegionElement">
-                        <input type="checkbox" id="Pyro" value="Pyro" />Pyro
+                <form class="cardsFilter" id="cards-filter">
+                    <div class="cardsFilter__inputContainer">
+                        <input
+                            type="text"
+                            id="cards-filter__name"
+                            name="cards-filter__name"
+                            class="cardsFilter__search"
+                            placeholder="Search for a character"
+                        />
+                        <button type="submit" class="cardsFilter__searchButton">O\</button>
                     </div>
-                    <div class="filterSection_byName">
-                        <input type="text" name="byName" id="byName">
-                        <input type="submit" name="byName" id="byNameBtn">
+                    <div class="cardsFilter__inputContainer cardsFilter__inputContainer--dropdown">
+                        <div>
+                            <h3 class="cardsFilter__title">Filters</h3>
+                            <button class="cardsFilter__dropdownButton" id="cardsFilter__dropdownButton">v</button>
+                        </div>
+                        <div class="cardsFilter__dropdownContent" id="filter-dropdown-content">
+                            <div class="cardsFilter__filterCheckboxes" id="filter-element">
+                                <div class="cardsFilter__filterTitleContainer">
+                                    <h4 class="cardsFilter__filterTitle">Element</h4>
+                                    <button class="cardsFilter__filterButton">v</button>
+                                </div>
+                                <div class="cardsFilter__checkboxContainer" id="filter-element-container">
+                                    <!-- Template: <label for="Anemo" class="cardsFilter__checkboxLabel"><input class="cardsFilter__checkbox" type="checkbox" id="element-Anemo" name="Anemo" value="Anemo"/>Anemo</label> -->
+                                    <!-- TODO -->
+                                </div>
+                            </div>
+                            <div class="cardsFilter__filterCheckboxes" id="cards-filter__nation">
+                                <div class="cardsFilter__filterTitleContainer">
+                                    <h4 class="cardsFilter__filterTitle">Nation</h4>
+                                    <button class="cardsFilter__filterButton">v</button>
+                                </div>
+                                <div class="cardsFilter__checkboxContainer" id="filter-nation-container">
+                                    <!-- Template: <label for="Mondstadt"><input type="checkbox" id="Mondstadt" name="Mondstadt" value="nation-Mondstadt"/>Mondstadt</label> -->
+                                    <!-- TODO -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
+                </form>
                 <div class="cardsContainer" id="cards-container">
                     <!-- Template Card:
                 <a class="card">

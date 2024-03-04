@@ -306,6 +306,28 @@ function createPropertiesModalCharacter(character) {
     return modalProperties;
 }
 
-export { createCard };
+const filtersTypes = {
+    ELEMENT: 'element',
+    NATION: 'nation',
+}
 
+function createFilterCheckbox (filter, type) {
+    const label = document.createElement('label');
+    label.classList.add('cardsFilter__checkboxLabel');
 
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.classList.add('cardsFilter__checkbox');
+    checkbox.id = `${type}-${filter}`;
+    checkbox.value = filter;
+    checkbox.name = type;
+
+    label.htmlFor = `${type}-${filter}`;
+
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(filter.substring(0, 1).toUpperCase() + filter.substring(1)));
+    
+    return label;
+}
+
+export { createCard, filtersTypes, createFilterCheckbox };
