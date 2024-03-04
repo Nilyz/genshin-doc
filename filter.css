@@ -1,0 +1,16 @@
+.filterSection{
+    border: 2px solid black;
+    height: 200px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filterSection_byName,.filterSection_byRegionElement{
+
+    width: 50%;
+    height: 100px;
+    border: 2px solid black;
+}

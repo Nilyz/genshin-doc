@@ -307,3 +307,5 @@ function createPropertiesModalCharacter(character) {
 }
 
 export { createCard };
+
+

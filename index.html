@@ -13,6 +13,7 @@
             href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="./filter.css">
         <link rel="stylesheet" type="text/css" media="screen" href="./cards.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="./modal.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
@@ -101,6 +102,17 @@
                     <h2 class="sectionTitleCharacters__title">Characters</h2>
                     <hr class="sectionTitleCharacters__line sectionTitleCharacters__line--der" />
                 </div>
+
+                <div class="filterSection">
+                    <div class="filterSection_byRegionElement">
+                        <input type="checkbox" id="Pyro" value="Pyro" />Pyro
+                    </div>
+                    <div class="filterSection_byName">
+                        <input type="text" name="byName" id="byName">
+                        <input type="submit" name="byName" id="byNameBtn">
+                    </div>
+                </div>
+
                 <div class="cardsContainer" id="cards-container">
                     <!-- Template Card:
                 <a class="card">
@@ -140,7 +152,7 @@
                     ><img src="./img/youtube.svg" alt="" class="netContainer__twitterImg netImg"
                 /></a>
             </div>
-            <p class="footer__copy">Desarrollado por Yilin Zhou y Ángel García</p>
+            <p class="footer__copy">Developed by Ángel García and Yilin Zhou</p>
         </footer>
     </body>
 </html>
