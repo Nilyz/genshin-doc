@@ -63,7 +63,7 @@ img {
     padding: 15px 0;
     display: flex;
     flex-flow: column nowrap;
-    width: 20%;
+    width: 30%;
     height: 100%;
     overflow: unset;
 }
@@ -75,6 +75,7 @@ img {
     margin: auto;
     object-fit: contain;
     object-position: bottom center;
+
 }
 
 .header__title {
@@ -431,6 +432,7 @@ img {
         width: 100%;
         height: auto;
         padding: 0;
+        margin-top: 15%;
     }
     .header::after {
         content: '';
