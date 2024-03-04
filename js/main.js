@@ -1,7 +1,7 @@
-import { NotFoundError } from './errors.js';
+import { EmptyFormError, NotFoundError } from './errors.js';
 import { getCharacters } from './modules/api.js';
-import { setCardsContainer, createCard, createFilterCheckbox, filtersTypes } from './modules/ui.js';
-import { filterByName, filterByElements, filterByNations } from './modules/utils.js';
+import { setCardsContainer, createCard, createFilterCheckbox, filtersTypes, handleError } from './modules/ui.js';
+import { filterByName, filterByElements, filterByNations, closeError } from './modules/utils.js';
 
 const characters = await getCharacters();
 console.log(characters);
@@ -40,6 +40,7 @@ filterForm.addEventListener('submit', event => {
             formData.getAll(filtersTypes.ELEMENT).length === 0 &&
             formData.getAll(filtersTypes.NATION).length === 0
         ) {
+            setCardsContainer(characters);
             throw new EmptyFormError('Empty form');
         }
 
@@ -65,8 +66,14 @@ filterForm.addEventListener('submit', event => {
         }
 
         setCardsContainer(result);
-        console.log(result);
     } catch (error) {
-        // TODO: Implement error handling
+        handleError(error);
     }
+});
+
+const buttonCloseError = document.getElementById('error-modal-close');
+
+buttonCloseError.addEventListener('click', () => {
+    const errorModal = document.getElementById('error-modal');
+    closeError(errorModal);
 });

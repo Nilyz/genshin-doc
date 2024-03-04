@@ -11,8 +11,9 @@ function getIconImage(character) {
     }
     return character.imagesList['icon'];
 }
+
 function getRandomTraveler() {
-    const randomNumber = Math.floor(Math.random() * 2) + 1; 
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
     return randomNumber === 1 ? 'lumine' : 'aether';
 }
 
@@ -78,8 +79,6 @@ const elementsImages = {
     geo: './img/geo.svg',
 };
 
-
-
 function filterByName(search, characters) {
     search = search.toLowerCase().trim();
     const results = characters.filter(character => character.name.toLowerCase().trim().includes(search));
@@ -95,4 +94,32 @@ function filterByNations(nations, characters) {
     const results = characters.filter(character => nations.includes(character.nation));
     return results;
 }
-export { getNationImage, getIconImage, getElementsImages, getPortraitImage, getCardImage,filterByName,filterByElements,filterByNations };
+
+let closeErrorTimeout;
+function setCloseErrorTimeout(errorContainer) {
+    if (closeErrorTimeout) clearInterval(closeErrorTimeout);
+
+    closeErrorTimeout = setTimeout(() => {
+        closeError(errorContainer);
+    }, 5000);
+}
+
+function closeError(errorContainer) {
+    if (closeErrorTimeout) clearInterval(closeErrorTimeout);
+
+    errorContainer.classList.remove('errorModal--active');
+    errorContainer.classList.add('errorModal--hidden');
+}
+
+export {
+    getNationImage,
+    getIconImage,
+    getElementsImages,
+    getPortraitImage,
+    getCardImage,
+    filterByName,
+    filterByElements,
+    filterByNations,
+    setCloseErrorTimeout,
+    closeError,
+};

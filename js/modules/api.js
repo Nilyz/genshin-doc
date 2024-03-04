@@ -1,4 +1,5 @@
 import { FetchError, DataError, ImageNotFoundError } from '../errors.js';
+import { handleError } from './ui.js';
 import { getIconImage } from './utils.js';
 
 const URL = 'https://genshin.jmp.blue';
@@ -13,8 +14,7 @@ async function getCharacters() {
         );
         return characters.filter(character => character !== undefined);
     } catch (error) {
-        // TODO: Check and implement correct error handling
-        console.error(error);
+        handleError(error);
     }
 }
 
@@ -56,6 +56,7 @@ async function getCharacter(name) {
         if (!error instanceof ImageNotFoundError) {
             throw error;
         }
+        handleError(error);
     }
 }
 

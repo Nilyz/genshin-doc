@@ -40,6 +40,7 @@
     height: 100vh;
     width: 100%;
     transition: width 0.5s ease-in-out;
+    transition-delay: 0.2s;
 }
 
 .modal__closeButton {
@@ -55,7 +56,7 @@
     height: 35px;
     cursor: pointer;
     display: none;
-    transform:rotate(45deg) ;
+    transform: rotate(45deg);
 }
 
 .modal__closeButton--active {
@@ -323,12 +324,12 @@
     transition: all 0.3s ease;
     line-height: 1.05;
     opacity: 0;
+    margin-bottom: 20px;
 }
 
 .modalCharacter__descriptionContainer:hover .modalCharacter__properties {
     height: 100%;
     overflow: initial;
-    margin-bottom: 20px;
     opacity: 1;
 }
 
@@ -347,4 +348,47 @@
     font-weight: bold;
     color: #d3bf4e;
     border-bottom: 1px solid #d3bf4e;
+}
+
+.errorModal {
+    position: fixed;
+    display: flex;
+    top: calc(100% - 65px);
+    left: 100%;
+    z-index: 102;
+    padding: 10px 20px;
+    background-color: #d3bf4e;
+    border: 3px solid #f0f0f0;
+    gap: 10px;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #4d4b4b9d;
+    transform: translate(0, -65px);
+    overflow: auto;
+    width: max-content;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.errorModal--active {
+    transform: translate(calc(-100% - 25px), -65px);
+}
+
+.errorModal__message {
+    text-align: center;
+    height: 100%;
+}
+
+.errorModal__closeButton {
+    height: 2em;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    cursor: pointer;
+    border: 0px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

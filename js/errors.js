@@ -23,4 +23,11 @@ const ImageNotFoundError = createAPIErrorFactory('ImageNotFoundError');
 const EmptyFormError = createSearchErrorFactory('EmptyFormError');
 const NotFoundError = createSearchErrorFactory('NotFoundError');
 
-export { FetchError, ImageNotFoundError, DataError, EmptyFormError, NotFoundError };
+const errorMessages = {
+    FetchError: 'Error fetching data',
+    DataError: 'Error processing data',
+    EmptyFormError: 'Search form is empty',
+    NotFoundError: 'No characters found',
+};
+
+export { errorMessages, FetchError, ImageNotFoundError, DataError, EmptyFormError, NotFoundError };
