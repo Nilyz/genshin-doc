@@ -59,15 +59,4 @@ async function getCharacter(name) {
     }
 }
 
-function filterByName(search, characters) {
-    search = search.toLowerCase().trim();
-    const results = characters.filter(character => character.name.toLowerCase().trim().includes(search));
-    return results;
-}
-
-function filterByElement(search, characters) {
-    const results = characters.filter(character => character.vision === search);
-    return results;
-}
-
-export { getCharacters, getIconImage, filterByName, filterByElement };
+export { getCharacters, getIconImage };

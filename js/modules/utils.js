@@ -78,4 +78,21 @@ const elementsImages = {
     geo: './img/geo.svg',
 };
 
-export { getNationImage, getIconImage, getElementsImages, getPortraitImage, getCardImage };
+
+
+function filterByName(search, characters) {
+    search = search.toLowerCase().trim();
+    const results = characters.filter(character => character.name.toLowerCase().trim().includes(search));
+    return results;
+}
+
+function filterByElements(elements, characters) {
+    const results = characters.filter(character => elements.includes(character.vision));
+    return results;
+}
+
+function filterByNations(nations, characters) {
+    const results = characters.filter(character => nations.includes(character.nation));
+    return results;
+}
+export { getNationImage, getIconImage, getElementsImages, getPortraitImage, getCardImage,filterByName,filterByElements,filterByNations };

@@ -1,5 +1,6 @@
-import { getCharacters, filterByName, filterByElement } from './modules/api.js';
+import { getCharacters} from './modules/api.js';
 import { createCard, createFilterCheckbox, filtersTypes } from './modules/ui.js';
+import { filterByName,filterByElements,filterByNations } from './modules/utils.js';
 
 const characters = await getCharacters();
 console.log(characters);
@@ -30,27 +31,32 @@ nations.forEach(nation => {
 
 const filterForm = document.getElementById('cards-filter');
 
+let cont=0;
+
 filterForm.addEventListener('submit', event => {
     event.preventDefault();
     const formData = new FormData(filterForm);
 
     let result = characters;
-
     const search = formData.get('cards-filter__name');
+
     result = filterByName(search, result);
 
     const elements = formData.getAll(filtersTypes.ELEMENT);
     if (elements.length > 0) {
         console.log(elements);
+        result=filterByElements(elements, result);
     }
-
     const nations = formData.getAll(filtersTypes.NATION);
     if (nations.length > 0) {
         console.log(nations);
+        result=filterByNations(nations, result);
     }
-
     console.log(result);
 });
+
+
+
 
 /* getNameBtn.addEventListener("click",() =>{
     let prueba=filterByName(search.value, characters);
