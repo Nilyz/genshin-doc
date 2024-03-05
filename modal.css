@@ -223,16 +223,22 @@
     height: 35px;
     z-index: 100;
     border-radius: 100%;
-    border: 3px solid #d3bf4e;
-    background-color: #f0f0f0;
+    background-image: url(./img/flecha_genshin.png);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #d3bf4e;
+    border: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
+
 .modalCharacter__selectorImg:active {
     background-color: #d3bf4e;
+    background-position: right;
 }
 
 .modalCharacter__nameContainer {
