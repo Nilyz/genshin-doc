@@ -1,4 +1,12 @@
-import { getIconImage, getElementsImages, getNationImage, getPortraitImage, getCardImage } from './utils.js';
+import { errorMessages } from '../errors.js';
+import {
+    getIconImage,
+    getElementsImages,
+    getNationImage,
+    getPortraitImage,
+    getCardImage,
+    setCloseErrorTimeout,
+} from './utils.js';
 
 function setCardsContainer(characters) {
     const cardsContainer = document.getElementById('cards-container');
@@ -248,7 +256,7 @@ function createPropertiesModalCharacter(character) {
         talentElement.classList.add('modalCharacter__talent');
 
         const talentType = document.createElement('p');
-        talentType.textContent = talent.unlock + ":";
+        talentType.textContent = talent.unlock + ':';
         talentType.classList.add('modalCharacter__talentType', `modalCharacter__talentType--${talent.type}`);
 
         const talentName = document.createElement('p');
@@ -317,9 +325,9 @@ function createPropertiesModalCharacter(character) {
 const filtersTypes = {
     ELEMENT: 'element',
     NATION: 'nation',
-}
+};
 
-function createFilterCheckbox (filter, type) {
+function createFilterCheckbox(filter, type) {
     const label = document.createElement('label');
     label.classList.add('cardsFilter__checkboxLabel');
 
@@ -334,8 +342,21 @@ function createFilterCheckbox (filter, type) {
 
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(filter.substring(0, 1).toUpperCase() + filter.substring(1)));
-    
+
     return label;
 }
 
-export { createCard, filtersTypes, createFilterCheckbox, setCardsContainer };
+function handleError(error) {
+    const message = document.getElementById('error');
+    if (errorMessages[error.name] !== undefined) {
+        message.textContent = errorMessages[error.name];
+
+        const errorContainer = document.getElementById('error-modal');
+        errorContainer.classList.remove('errorModal--hidden');
+        errorContainer.classList.add('errorModal--active');
+
+        setCloseErrorTimeout(errorContainer);
+    }
+}
+
+export { createCard, filtersTypes, createFilterCheckbox, setCardsContainer, handleError };

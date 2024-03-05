@@ -67,6 +67,10 @@
                 <img src="./img/fondo_nubes.png" alt="cloud" class="hero__clouds" />
             </section>
             <section id="characters" class="characterCardsContainer">
+                <div id="error-modal" class="errorModal errorModal--hidden">
+                    <p id="error" class="errorModal__message"></p>
+                    <button id="error-modal-close" class="errorModal__closeButton">X</button>
+                </div>
                 <div id="cards-modal" class="modal">
                     <div class="modal__background"></div>
                     <div class="modal__main">
@@ -117,13 +121,13 @@
                     <div class="cardsFilter__inputContainer cardsFilter__inputContainer--dropdown">
                         
                             <h3 class="cardsFilter__title">Filters</h3>
-                            <button class="cardsFilter__dropdownButton" id="cardsFilter__dropdownButton">v</button>
+                            <button class="cardsFilter__dropdownButton" id="cardsFilter__dropdownButton"><img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg"></button>
                         
                         <div class="cardsFilter__dropdownContent" id="filter-dropdown-content">
                             <div class="cardsFilter__filterCheckboxes" id="filter-element">
                                 <div class="cardsFilter__filterTitleContainer">
                                     <h4 class="cardsFilter__filterTitle">Element</h4>
-                                    <button class="cardsFilter__filterButton">v</button>
+                                    <button class="cardsFilter__filterButton"><img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg"></button>
                                 </div>
                                 <div class="cardsFilter__checkboxContainer" id="filter-element-container">
                                     <!-- Template: <label for="Anemo" class="cardsFilter__checkboxLabel"><input class="cardsFilter__checkbox" type="checkbox" id="element-Anemo" name="Anemo" value="Anemo"/>Anemo</label> -->
@@ -133,7 +137,7 @@
                             <div class="cardsFilter__filterCheckboxes" id="cards-filter__nation">
                                 <div class="cardsFilter__filterTitleContainer">
                                     <h4 class="cardsFilter__filterTitle">Nation</h4>
-                                    <button class="cardsFilter__filterButton">v</button>
+                                    <button class="cardsFilter__filterButton"><img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg"></button>
                                 </div>
                                 <div class="cardsFilter__checkboxContainer" id="filter-nation-container">
                                     <!-- Template: <label for="Mondstadt"><input type="checkbox" id="Mondstadt" name="Mondstadt" value="nation-Mondstadt"/>Mondstadt</label> -->
