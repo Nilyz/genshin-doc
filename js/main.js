@@ -63,8 +63,7 @@ filterForm.addEventListener('submit', event => {
 
         if (result.length === 0) {
             throw new NotFoundError('No characters found');
-        }
-        else {
+        } else {
             event.target.reset();
         }
 
@@ -72,7 +71,6 @@ filterForm.addEventListener('submit', event => {
     } catch (error) {
         handleError(error);
     }
-
 });
 
 const buttonCloseError = document.getElementById('error-modal-close');
