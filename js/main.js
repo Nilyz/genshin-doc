@@ -77,3 +77,25 @@ buttonCloseError.addEventListener('click', () => {
     const errorModal = document.getElementById('error-modal');
     closeError(errorModal);
 });
+
+const filterElement = document.getElementById('filter-element');
+const filterNation = document.getElementById('filter-nation');
+
+const openFilterElement = document.getElementById('open-filter-element');
+const openFilterNation = document.getElementById('open-filter-nation');
+
+openFilterElement.addEventListener('click', () => {
+    if (!filterElement.classList.contains('cardsFilter__filterCheckboxes--active')) {
+        filterElement.classList.add('cardsFilter__filterCheckboxes--active');
+    } else {
+        filterElement.classList.remove('cardsFilter__filterCheckboxes--active');
+    }
+});
+
+openFilterNation.addEventListener('click', () => {
+    if (!filterNation.classList.contains('cardsFilter__filterCheckboxes--active')) {
+        filterNation.classList.add('cardsFilter__filterCheckboxes--active');
+    } else {
+        filterNation.classList.remove('cardsFilter__filterCheckboxes--active');
+    }
+});
