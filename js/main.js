@@ -4,7 +4,6 @@ import { setCardsContainer, createCard, createFilterCheckbox, filtersTypes, hand
 import { filterByName, filterByElements, filterByNations, closeError } from './modules/utils.js';
 
 const characters = await getCharacters();
-console.log(characters);
 
 const cardsContainer = document.getElementById('cards-container');
 
