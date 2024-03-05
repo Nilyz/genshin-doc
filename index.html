@@ -17,6 +17,10 @@
         <link rel="stylesheet" type="text/css" media="screen" href="./cards.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="./modal.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
+
+        <link rel="preload" as="image" href="./img/traveler_emb.png">
+        <link rel="preload" as="image" href="./img/genshinDocs.png">
+
         <script src="./js/main.js" type="module" defer></script>
     </head>
     <body>
@@ -47,8 +51,8 @@
         </header>
         <main class="main">
             <section id="hero" class="hero">
-                <img src="./img/traveler_emb.png" alt="" class="hero_embImg" />
-                <img src="./img/logo_genshin_grande.png" alt="" class="hero_logoImg" />
+                <img src="./img/traveler_emb.png" alt="Traveler and Paimon in Mondstadt" class="hero_embImg" />
+                <img src="./img/logo_genshin_grande.png" alt="Genshin Impact" class="hero_logoImg" />
                 <div class="buttonContainer">
                     <img
                         class="buttonContainer__img"
@@ -59,9 +63,9 @@
                         <img
                             class="buttonContainer__btnImg"
                             src="./img/arrow-narrow-circle-broken-left-svgrepo-com.svg"
-                            alt=""
+                            alt="Arrow to go bottom"
                         />
-                        <img class="buttonContainer__btnImgArrow" src="./img/arrow-sm-left-svgrepo-com.svg" alt="" />
+                        <img class="buttonContainer__btnImgArrow" src="./img/arrow-sm-left-svgrepo-com.svg" alt="Arrow to go bottom" />
                     </a>
                 </div>
                 <img src="./img/fondo_nubes.png" alt="cloud" class="hero__clouds" />
@@ -78,9 +82,9 @@
                             <img
                                 class="modal__btnImg"
                                 src="./img/arrow-narrow-circle-broken-left-svgrepo-com.svg"
-                                alt=""
+                                alt="Close modal button"
                             />
-                            <img class="modal__btnImgArrow" src="./img/arrow-sm-left-svgrepo-com.svg" alt="" />
+                            <img class="modal__btnImgArrow" src="./img/arrow-sm-left-svgrepo-com.svg" alt="Close modal button" />
                         </button>
                         <div class="modal__content" id="modal__content"></div>
                         <!-- Template ExtensionCard:
@@ -117,13 +121,13 @@
                             placeholder="Search for a character"
                         />
                         <button type="submit" class="cardsFilter__searchButton">
-                            <img src="./img/magnifying-glass-svgrepo-com.svg" class="cardsFilter__searchButtonImg" />
+                            <img src="./img/magnifying-glass-svgrepo-com.svg" class="cardsFilter__searchButtonImg" alt="Search button" />
                         </button>
                     </div>
                     <a id="form" href="#form" class="cardsFilter__inputContainer cardsFilter__inputContainer--dropdown">
                         <h3 class="cardsFilter__title">Filters</h3>
                         <button id="open-filter" class="cardsFilter__dropdownButton" type="button">
-                            <img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg" />
+                            <img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg" alt="Dropdown button" />
                         </button>
                     </a>
                     <div class="cardsFilter__dropdown cardsFilter__dropdown--hidde">
@@ -132,7 +136,7 @@
                                 <div id="open-filter-element" class="cardsFilter__filterTitleContainer">
                                     <h4 class="cardsFilter__filterTitle">Element</h4>
                                     <button class="cardsFilter__filterButton" type="button">
-                                        <img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg" />
+                                        <img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg" alt="Dropdown button" />
                                     </button>
                                 </div>
                                 <div class="cardsFilter__checkboxContainer" id="filter-element-container">
@@ -143,7 +147,7 @@
                                 <div id="open-filter-nation" class="cardsFilter__filterTitleContainer">
                                     <h4 class="cardsFilter__filterTitle">Nation</h4>
                                     <button class="cardsFilter__filterButton" type="button">
-                                        <img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg" />
+                                        <img src="./img/flecha_genshin.png" class="cardsFilter__dropdownButtonImg" alt="Dropdown button" />
                                     </button>
                                 </div>
                                 <div class="cardsFilter__checkboxContainer" id="filter-nation-container">
@@ -176,20 +180,19 @@
             </section>
         </main>
         <footer id="footer" class="footer">
-            <!-- TODO -->
             <hr class="footer__linea" />
             <div class="netContainer">
-                <a href="https://www.hoyolab.com/home"
-                    ><img src="./img/hoyolab.svg" alt="" class="netContainer__hoyolabImg netImg"
+                <a href="https://www.hoyolab.com/home" target="_blank"
+                    ><img src="./img/hoyolab.svg" alt="Social media Hoyolab" class="netContainer__hoyolabImg netImg"
                 /></a>
-                <a href="https://twitter.com/genshinimpactes?lang=es"
-                    ><img src="./img/twitter.svg" alt="" class="netContainer__instagramImg netImg"
+                <a href="https://twitter.com/genshinimpactes?lang=es" target="_blank"
+                    ><img src="./img/twitter.svg" alt="Social media Twitter" class="netContainer__instagramImg netImg"
                 /></a>
-                <a href="https://www.instagram.com/genshinimpact/?hl=es"
-                    ><img src="./img/instagram.svg" alt="" class="netContainer__twitterImg netImg"
+                <a href="https://www.instagram.com/genshinimpact/?hl=es" target="_blank"
+                    ><img src="./img/instagram.svg" alt="Social media Instagram" class="netContainer__twitterImg netImg"
                 /></a>
                 <a href="https://www.youtube.com/c/genshinimpact"
-                    ><img src="./img/youtube.svg" alt="" class="netContainer__twitterImg netImg"
+                    ><img src="./img/youtube.svg" alt="Social media Youtube" class="netContainer__twitterImg netImg"
                 /></a>
             </div>
             <p class="footer__copy">Developed by Ángel García and Yilin Zhou</p>
