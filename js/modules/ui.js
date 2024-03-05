@@ -26,6 +26,7 @@ function createCard(character) {
     backgroundNation.classList.add('card__backgroundNation');
     backgroundNation.src = getNationImage(character.nation).emblem;
     backgroundNation.alt = `${character.nation} emblem`;
+    backgroundNation.loading = 'lazy';
 
     const name = document.createElement('p');
     name.classList.add('card__name');
@@ -46,6 +47,7 @@ function createCard(character) {
     img.classList.add('card__img');
     img.src = getIconImage(character);
     img.alt = `${character.name} icon`;
+    img.loading = 'lazy';
 
     imgContainer.appendChild(img);
 
@@ -56,6 +58,7 @@ function createCard(character) {
         const star = document.createElement('img');
         star.classList.add('card__star');
         star.src = './img/Icon_1_Star.webp';
+        star.loading = 'lazy';
         starsContainer.appendChild(star);
     }
 
