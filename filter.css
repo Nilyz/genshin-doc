@@ -90,7 +90,8 @@
 
 .cardsFilter__inputContainer--dropdown {
     cursor: pointer;
-    background-color: #e1c970;
+    color: white;
+    background-color: #353535;
     border-radius: 5px;
     justify-content: flex-end;
     padding: 0 15px;
@@ -101,7 +102,8 @@
 .cardsFilter__filterCheckboxes {
     cursor: pointer;
     margin-top: 10px;
-    background-color: #e1c970;
+    color: white;
+    background-color: #353535;
     border-radius: 5px;
     height: 3rem;
     z-index: 0;
@@ -142,7 +144,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    padding: 10px;
+    padding: 20px;
 }
 
 .cardsFilter__checkboxLabel {

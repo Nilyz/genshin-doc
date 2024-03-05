@@ -64,11 +64,15 @@ filterForm.addEventListener('submit', event => {
         if (result.length === 0) {
             throw new NotFoundError('No characters found');
         }
+        else {
+            event.target.reset();
+        }
 
         setCardsContainer(result);
     } catch (error) {
         handleError(error);
     }
+
 });
 
 const buttonCloseError = document.getElementById('error-modal-close');
