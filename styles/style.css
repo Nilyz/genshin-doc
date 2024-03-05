@@ -20,7 +20,7 @@ body {
     color: #353535;
     background-color: #f7fbff;
     padding-bottom: 60px;
-    cursor: url('./img/cursor_paimon2.png'), auto;
+    cursor: url('../img/cursor_paimon2.png'), auto;
 }
 
 a {
@@ -38,7 +38,6 @@ img {
     object-fit: contain;
 }
 
-
 /* aside header */
 .header {
     position: fixed;
@@ -52,7 +51,7 @@ img {
     align-items: center;
     padding: 0 10px;
     background-color: #dfdfdf;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./img/fondoFloresHorizontal.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/fondoFloresHorizontal.jpg);
     background-position: bottom;
     background-size: fill;
     background-repeat: no-repeat;
@@ -76,7 +75,6 @@ img {
     margin: auto;
     object-fit: contain;
     object-position: bottom center;
-
 }
 
 .header__title {
@@ -144,7 +142,7 @@ img {
 .hero {
     position: relative;
     height: calc(100vh - 60px);
-    background-image: url('./img/wp7718232-traveler-genshin-impact-hd-wallpapers.jpg');
+    background-image: url('../img/wp7718232-traveler-genshin-impact-hd-wallpapers.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -156,7 +154,7 @@ img {
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 1px #00000068);    
+    filter: drop-shadow(0 0 1px #00000068);
 }
 .hero_logoImg {
     position: absolute;
@@ -172,7 +170,7 @@ img {
     width: 200px;
     border: none;
     height: 8px;
-    background-image: url('./img/linea_borde.png');
+    background-image: url('../img/linea_borde.png');
     background-size: cover;
 }
 .hero__clouds {
@@ -192,7 +190,6 @@ img {
     max-width: 400px;
     height: 100px;
     z-index: 6;
-    
 }
 
 .buttonContainer__img {
@@ -294,8 +291,8 @@ img {
     z-index: 100;
     padding: 0 5px 10px;
     text-wrap: balance;
-    font-size: .6rem;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("./img/fondoFloresHorizontal.jpg");
+    font-size: 0.6rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/fondoFloresHorizontal.jpg');
     background-position: center 87.84%;
     background-size: fill;
     background-repeat: no-repeat;
@@ -454,18 +451,18 @@ img {
         z-index: 100;
         padding: 0 5px 10px;
         text-wrap: balance;
-        font-size: .6rem;
+        font-size: 0.6rem;
         background: none;
     }
     .footer__linea {
         width: 90%;
         border-image-slice: 27 50 27 51;
         border-image-width: 0 20px 20px 20px;
-        border-image-source: url(./img/linea_borde.png);
+        border-image-source: url('../img/linea_borde.png');
         border-width: 1px;
         height: 1.5rem;
     }
-    
+
     .nav {
         width: 100%;
     }
@@ -603,7 +600,7 @@ img {
         aspect-ratio: 0.7;
     }
     .header {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./img/fondoFlores.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/fondoFlores.jpg');
         background-size: cover;
     }
 }

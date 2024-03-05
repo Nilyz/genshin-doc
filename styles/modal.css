@@ -223,12 +223,12 @@
     height: 35px;
     z-index: 100;
     border-radius: 100%;
-    background-image: url(./img/circleStar.svg);
+    background-image: url('../img/circleStar.svg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-color: white;
-    border: 2px solid #d3bf4e;;
+    border: 2px solid #d3bf4e;
     display: flex;
     justify-content: center;
     align-items: center;
