@@ -304,7 +304,7 @@ img {
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-content: space-around;
+    justify-items: center;
     align-items: center;
     gap: 15px;
 }
@@ -325,8 +325,8 @@ img {
     text-align: center;
     color: white;
     font-size: 0.8em;
-    padding-top: 5%;
 }
+
 @media (min-width: 768px) {
     html {
         font-size: 18px;
