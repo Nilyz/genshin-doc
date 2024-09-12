@@ -3,6 +3,21 @@ import { getCharacters } from './modules/api.js';
 import { setCardsContainer, createCard, createFilterCheckbox, filtersTypes, handleError } from './modules/ui.js';
 import { filterByName, filterByElements, filterByNations, closeError } from './modules/utils.js';
 
+const aboutLink = document.getElementById('about-link');
+if (window.innerWidth >= 1024) {
+    aboutLink.innerText = 'Bottom';
+    aboutLink.href = '#bottom';
+}
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+        aboutLink.innerText = 'Bottom';
+        aboutLink.href = '#bottom';
+    } else {
+        aboutLink.innerText = 'About';
+        aboutLink.href = '#footer';
+    }
+});
+
 const characters = await getCharacters();
 
 const cardsContainer = document.getElementById('cards-container');
